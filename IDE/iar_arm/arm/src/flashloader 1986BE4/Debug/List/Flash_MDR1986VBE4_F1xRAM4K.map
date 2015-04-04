@@ -1,0 +1,136 @@
+###############################################################################
+#                                                                             #
+# IAR ELF Linker V6.40.2.53884/W32 for ARM              04/Aug/2014  13:04:06 #
+# Copyright 2007-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    Output file  =  C:\Users\sidorov.a\workspace\mdr1986x-std-per-lib\IDE\ia #
+#                    r_arm\arm\src\flashloader 1986BE4\Debug\Exe\Flash_MDR198 #
+#                    6VBE4_F1xRAM4K.out                                       #
+#    Map file     =  C:\Users\sidorov.a\workspace\mdr1986x-std-per-lib\IDE\ia #
+#                    r_arm\arm\src\flashloader 1986BE4\Debug\List\Flash_MDR19 #
+#                    86VBE4_F1xRAM4K.map                                      #
+#    Command line =  "C:\Users\sidorov.a\workspace\mdr1986x-std-per-lib\IDE\i #
+#                    ar_arm\arm\src\flashloader 1986BE4\Debug\Obj\flash_loade #
+#                    r.o" "C:\Users\sidorov.a\workspace\mdr1986x-std-per-lib\ #
+#                    IDE\iar_arm\arm\src\flashloader                          #
+#                    1986BE4\Debug\Obj\flash_loader_asm.o"                    #
+#                    "C:\Users\sidorov.a\workspace\mdr1986x-std-per-lib\IDE\i #
+#                    ar_arm\arm\src\flashloader 1986BE4\Debug\Obj\main.o" -o  #
+#                    "C:\Users\sidorov.a\workspace\mdr1986x-std-per-lib\IDE\i #
+#                    ar_arm\arm\src\flashloader 1986BE4\Debug\Exe\Flash_MDR19 #
+#                    86VBE4_F1xRAM4K.out" --redirect _Printf=_PrintfTiny      #
+#                    --map "C:\Users\sidorov.a\workspace\mdr1986x-std-per-lib #
+#                    \IDE\iar_arm\arm\src\flashloader                         #
+#                    1986BE4\Debug\List\Flash_MDR1986VBE4_F1xRAM4K.map"       #
+#                    --config "C:\Users\sidorov.a\workspace\mdr1986x-std-per- #
+#                    lib\IDE\iar_arm\arm\src\flashloader 1986BE4\Flash.icf"   #
+#                    --entry FlashInitEntry --vfe                             #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at 0x20000000 { section .intvec };
+"A2":  place at start of [0x20001000-0x20003fff] { block RamTop };
+"A3":  place at end of [0x20001000-0x20003fff] { block RamBottom };
+
+  Section      Kind        Address   Size  Object
+  -------      ----        -------   ----  ------
+"A1":                                0x20
+  .intvec      ro code  0x20000000   0x20  flash_loader_asm.o [1]
+                      - 0x20000020   0x20
+
+"A2":                               0x900
+  RamTop                0x20001000  0x900  <Block>
+    .rodata    const    0x20001000  0x554  main.o [1]
+    .text      ro code  0x20001554   0x9a  flash_loader.o [1]
+    .text      ro code  0x200015f0  0x2f8  main.o [1]
+    .text      ro code  0x200018e8   0x18  flash_loader_asm.o [1]
+    LOWEND     const    0x20001900    0x0  flash_loader_asm.o [1]
+                      - 0x20001900  0x900
+
+"A3":                               0x414
+  RamBottom             0x20003bec  0x414  <Block>
+    HIGHSTART  const    0x20003bec    0x0  flash_loader_asm.o [1]
+    .noinit    uninit   0x20003bec   0x14  flash_loader.o [1]
+    CSTACK              0x20003c00  0x400  <Block>
+      CSTACK   uninit   0x20003c00  0x400  <Block tail>
+                      - 0x20004000  0x414
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module              ro code  ro data  rw data
+    ------              -------  -------  -------
+C:\Users\sidorov.a\workspace\mdr1986x-std-per-lib\IDE\iar_arm\arm\src\flashloader 1986BE4\Debug\Obj: [1]
+    flash_loader.o          154                20
+    flash_loader_asm.o       56
+    main.o                  760    1 364
+    ---------------------------------------------
+    Total:                  970    1 364       20
+
+    Gaps                      2
+    Linker created                          1 024
+-------------------------------------------------
+    Grand Total:            972    1 364    1 044
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                    Address   Size  Type      Object
+-----                    -------   ----  ----      ------
+BOOT_LOADER           0x20001000  0x554  Data  Gb  main.o [1]
+CSTACK$$Base          0x20003c00          --   Gb  - Linker created -
+CSTACK$$Limit         0x20004000          --   Gb  - Linker created -
+Fl2FlashEraseWriteEntry
+                      0x2000158d   0x5a  Code  Gb  flash_loader.o [1]
+Fl2FlashInitEntry     0x20001555   0x1c  Code  Gb  flash_loader.o [1]
+Fl2FlashWriteEntry    0x20001571   0x1c  Code  Gb  flash_loader.o [1]
+FlashBreak            0x200015ed    0x2  Code  Gb  flash_loader.o [1]
+FlashBufferEnd        0x20003bec         Data  Gb  flash_loader_asm.o [1]
+FlashBufferStart      0x20001900         Data  Gb  flash_loader_asm.o [1]
+FlashErase            0x200016ef   0x3c  Code  Gb  main.o [1]
+FlashEraseWriteEntry  0x200018f9         Code  Gb  flash_loader_asm.o [1]
+FlashInit             0x200015f1   0x1e  Code  Gb  main.o [1]
+FlashInitEntry        0x200018e9         Code  Gb  flash_loader_asm.o [1]
+FlashWrite            0x2000160f   0xe0  Code  Gb  main.o [1]
+FlashWriteEntry       0x200018f1         Code  Gb  flash_loader_asm.o [1]
+RamBottom$$Base       0x20003bec          --   Gb  - Linker created -
+RamBottom$$Limit      0x20004000          --   Gb  - Linker created -
+RamTop$$Base          0x20001000          --   Gb  - Linker created -
+RamTop$$Limit         0x20001900          --   Gb  - Linker created -
+Region$$Table$$Base   0x00000000          --   Gb  - Linker created -
+Region$$Table$$Limit  0x00000000          --   Gb  - Linker created -
+__vector_table        0x20000000         Data  Gb  flash_loader_asm.o [1]
+earase_flash          0x2000172b   0x9a  Code  Gb  main.o [1]
+theFlashParams        0x20003bec   0x14  Data  Gb  flash_loader.o [1]
+write_boot            0x200017d5   0xc0  Code  Gb  main.o [1]
+
+
+[1] = C:\Users\sidorov.a\workspace\mdr1986x-std-per-lib\IDE\iar_arm\arm\src\flashloader 1986BE4\Debug\Obj
+[2] = command line
+[3] = dl6M_tlf.a
+[4] = rt6M_tl.a
+
+    972 bytes of readonly  code memory
+  1 364 bytes of readonly  data memory
+  1 044 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

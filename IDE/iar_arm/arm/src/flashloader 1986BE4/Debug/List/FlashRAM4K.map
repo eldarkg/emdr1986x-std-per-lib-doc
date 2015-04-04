@@ -1,0 +1,205 @@
+###############################################################################
+#                                                                             #
+# IAR ELF Linker V6.40.2.53884/W32 for ARM              20/Mar/2014  16:17:56 #
+# Copyright 2007-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    Output file  =  C:\Users\sidorov.a\workspace\mdr1986x-std-per-lib\IDE\ia #
+#                    r_arm\arm\src\flashloader 1986BE4\Debug\Exe\FlashRAM4K.o #
+#                    ut                                                       #
+#    Map file     =  C:\Users\sidorov.a\workspace\mdr1986x-std-per-lib\IDE\ia #
+#                    r_arm\arm\src\flashloader 1986BE4\Debug\List\FlashRAM4K. #
+#                    map                                                      #
+#    Command line =  "C:\Users\sidorov.a\workspace\mdr1986x-std-per-lib\IDE\i #
+#                    ar_arm\arm\src\flashloader 1986BE4\Debug\Obj\flash_loade #
+#                    r.o" "C:\Users\sidorov.a\workspace\mdr1986x-std-per-lib\ #
+#                    IDE\iar_arm\arm\src\flashloader                          #
+#                    1986BE4\Debug\Obj\flash_loader_asm.o"                    #
+#                    "C:\Users\sidorov.a\workspace\mdr1986x-std-per-lib\IDE\i #
+#                    ar_arm\arm\src\flashloader 1986BE4\Debug\Obj\main.o" -o  #
+#                    "C:\Users\sidorov.a\workspace\mdr1986x-std-per-lib\IDE\i #
+#                    ar_arm\arm\src\flashloader 1986BE4\Debug\Exe\FlashRAM4K. #
+#                    out" --redirect _Printf=_PrintfTiny --map                #
+#                    "C:\Users\sidorov.a\workspace\mdr1986x-std-per-lib\IDE\i #
+#                    ar_arm\arm\src\flashloader 1986BE4\Debug\List\FlashRAM4K #
+#                    .map" --config "C:\Users\sidorov.a\workspace\mdr1986x-st #
+#                    d-per-lib\IDE\iar_arm\arm\src\flashloader                #
+#                    1986BE4\Flash.icf" --entry FlashInitEntry --vfe          #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at 0x20000000 { section .intvec };
+"A2":  place at start of [0x20001000-0x20003fff] { block RamTop };
+"A3":  place at end of [0x20001000-0x20003fff] { block RamBottom };
+
+  Section              Kind        Address    Size  Object
+  -------              ----        -------    ----  ------
+"A1":                                         0x20
+  .intvec              ro code  0x20000000    0x20  flash_loader_asm.o [1]
+                              - 0x20000020    0x20
+
+"A2":                                        0x800
+  RamTop                        0x20001000   0x800  <Block>
+    .iar.init_table    const    0x20001000    0x24  - Linker created -
+    .rodata            const    0x20001024     0x8  main.o [1]
+    .rodata            const    0x2000102c    0x54  main.o [1]
+    .rodata            const    0x20001080    0x30  main.o [1]
+    .text              ro code  0x200010b0    0x96  flash_loader.o [1]
+    .text              ro code  0x20001146    0x2a  zero_init3.o [4]
+    .text              ro code  0x20001170   0x2f8  main.o [1]
+    .text              ro code  0x20001468    0x24  printf.o [3]
+    .text              ro code  0x2000148c    0x2e  I32DivMod.o [4]
+    .text              ro code  0x200014ba   0x162  xprintftiny.o [3]
+    .text              ro code  0x2000161c     0x2  IntDivZer.o [4]
+    .text              ro code  0x2000161e    0x10  strlen.o [4]
+    .text              ro code  0x20001630    0x18  flash_loader_asm.o [1]
+    .text              ro code  0x20001648    0x10  putchar.o [3]
+    .text              ro code  0x20001658    0x28  data_init3.o [4]
+    Initializer bytes  ro data  0x20001680    0x40  <for rw-1>
+    .text              ro code  0x200016c0    0x16  xprout.o [3]
+    .text              ro code  0x200016d6    0x30  copy_init3.o [4]
+    .rodata            const    0x20001706     0x0  zero_init3.o [4]
+    .rodata            const    0x20001706     0x0  copy_init3.o [4]
+    LOWEND             const    0x20001800     0x0  flash_loader_asm.o [1]
+                              - 0x20001800   0x800
+
+"A3":                                       0x20a4
+  RamBottom                     0x20001f5c  0x20a4  <Block>
+    HIGHSTART          const    0x20001f5c     0x0  flash_loader_asm.o [1]
+    rw-1                        0x20001f5c    0x40  <Init block>
+      .data            inited   0x20001f5c    0x40  xfiles.o [3]
+    .bss               zero     0x20001f9c    0x50  xfiles.o [3]
+    .noinit            uninit   0x20001fec    0x14  flash_loader.o [1]
+    CSTACK                      0x20002000  0x2000  <Block>
+      CSTACK           uninit   0x20002000  0x2000  <Block tail>
+                              - 0x20004000  0x20a4
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x50:
+          0x20001f9c  0x50
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x40:
+          0x20001680  0x40
+    1 destination range, total size 0x40:
+          0x20001f5c  0x40
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module              ro code  ro data  rw data
+    ------              -------  -------  -------
+C:\Users\sidorov.a\workspace\mdr1986x-std-per-lib\IDE\iar_arm\arm\src\flashloader 1986BE4\Debug\Obj: [1]
+    flash_loader.o          150                20
+    flash_loader_asm.o       56
+    main.o                  760      140
+    ---------------------------------------------
+    Total:                  966      140       20
+
+command line: [2]
+    ---------------------------------------------
+    Total:
+
+dl6M_tlf.a: [3]
+    printf.o                 36
+    putchar.o                16
+    xfiles.o                          64      144
+    xprintftiny.o           354
+    xprout.o                 22
+    ---------------------------------------------
+    Total:                  428       64      144
+
+rt6M_tl.a: [4]
+    I32DivMod.o              46
+    IntDivZer.o               2
+    copy_init3.o             48
+    data_init3.o             40
+    strlen.o                 16
+    zero_init3.o             42
+    ---------------------------------------------
+    Total:                  194
+
+    Gaps                      2               250
+    Linker created                    36    8 192
+-------------------------------------------------
+    Grand Total:          1 590      240    8 606
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                    Address   Size  Type      Object
+-----                    -------   ----  ----      ------
+CSTACK$$Base          0x20002000          --   Gb  - Linker created -
+CSTACK$$Limit         0x20004000          --   Gb  - Linker created -
+Fl2FlashEraseWriteEntry
+                      0x200010e9   0x56  Code  Gb  flash_loader.o [1]
+Fl2FlashInitEntry     0x200010b1   0x1c  Code  Gb  flash_loader.o [1]
+Fl2FlashWriteEntry    0x200010cd   0x1c  Code  Gb  flash_loader.o [1]
+FlashBreak            0x20001145    0x2  Code  Gb  flash_loader.o [1]
+FlashBufferEnd        0x20001f5c         Data  Gb  flash_loader_asm.o [1]
+FlashBufferStart      0x20001800         Data  Gb  flash_loader_asm.o [1]
+FlashErase            0x20001325   0xd4  Code  Gb  main.o [1]
+FlashEraseWriteEntry  0x20001641         Code  Gb  flash_loader_asm.o [1]
+FlashInit             0x20001181   0xa0  Code  Gb  main.o [1]
+FlashInitEntry        0x20001631         Code  Gb  flash_loader_asm.o [1]
+FlashWrite            0x20001221   0xf0  Code  Gb  main.o [1]
+FlashWriteEntry       0x20001639         Code  Gb  flash_loader_asm.o [1]
+RamBottom$$Base       0x20001f5c          --   Gb  - Linker created -
+RamBottom$$Limit      0x20004000          --   Gb  - Linker created -
+RamTop$$Base          0x20001000          --   Gb  - Linker created -
+RamTop$$Limit         0x20001800          --   Gb  - Linker created -
+Region$$Table$$Base   0x20001000          --   Gb  - Linker created -
+Region$$Table$$Limit  0x20001024          --   Gb  - Linker created -
+_PrintfTiny           0x200014bb  0x162  Code  Gb  xprintftiny.o [3]
+_Prout                0x200016c1   0x16  Code  Gb  xprout.o [3]
+__aeabi_idiv0         0x2000161d         Code  Gb  IntDivZer.o [4]
+__aeabi_uidiv         0x2000148d         Code  Gb  I32DivMod.o [4]
+__aeabi_uidivmod      0x2000148d         Code  Gb  I32DivMod.o [4]
+__iar_Stdout          0x20001f5c   0x40  Data  Gb  xfiles.o [3]
+__iar_copy_init3      0x200016d7   0x30  Code  Gb  copy_init3.o [4]
+__iar_data_init3      0x20001659   0x28  Code  Gb  data_init3.o [4]
+__iar_zero_init3      0x20001147   0x2a  Code  Gb  zero_init3.o [4]
+__vector_table        0x20000000         Data  Gb  flash_loader_asm.o [1]
+fputc                 0x20001171   0x10  Code  Gb  main.o [1]
+obuf                  0x20001f9c   0x50  Data  Lc  xfiles.o [3]
+printf                0x20001469   0x24  Code  Gb  printf.o [3]
+putchar               0x20001649   0x10  Code  Gb  putchar.o [3]
+strlen                0x2000161f   0x10  Code  Gb  strlen.o [4]
+theFlashParams        0x20001fec   0x14  Data  Gb  flash_loader.o [1]
+
+
+[1] = C:\Users\sidorov.a\workspace\mdr1986x-std-per-lib\IDE\iar_arm\arm\src\flashloader 1986BE4\Debug\Obj
+[2] = command line
+[3] = dl6M_tlf.a
+[4] = rt6M_tl.a
+
+  1 590 bytes of readonly  code memory
+    240 bytes of readonly  data memory
+  8 606 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

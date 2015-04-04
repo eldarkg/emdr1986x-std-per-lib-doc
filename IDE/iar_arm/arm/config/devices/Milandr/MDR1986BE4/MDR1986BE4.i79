@@ -1,0 +1,42 @@
+[FILEFORMAT]
+rev=1.6
+
+[CHIP]
+//Chip name
+name=1986BE4
+
+//What endian modes does the chip support? (littleonly, bigonly, both(default))
+endiansupport=littleonly
+
+//Does the chip support the thumb instruction set? (true(default), false)
+thumbsupport=true
+
+//Does the chip support the arm instruction set? (true(default), false)
+armsupport=false
+
+//Does the chip have an FPU coprocessor?
+//(VFPv1,VFPv2,VFP9-S,None(default)
+fpu=
+
+
+[CORE]
+//Name of the ARM processor core
+name=Cortex-M0
+
+
+[DDF FILE]
+//Name of the ddf file
+name=Milandr\MDR1986BE4.ddf
+
+
+[XCL FILE]
+//Name of the linker config file
+name=Milandr\MDR1986BE4\MDR1986BE4.icf
+
+
+[FLASH LOADER]
+name=$TOOLKIT_DIR$\config\flashloader\Milandr\MDR1986BE4\Flash_MDR1986BE4.board
+little=
+big=
+args=
+
