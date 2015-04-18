@@ -404,7 +404,7 @@
 </conditions>
     
   <components>
-    <component Cclass="Device" Cgroup="Startup_MDR1986BE9x" Cversion="1.3.1" condition="CON_MDR1986BE9x">
+    <component Cclass="Device" Cgroup="Startup" Cversion="1.3.1" condition="CON_MDR1986BE9x">
       <description>System Startup for MDR1986BE9x device series</description>
       <files>
         <!-- startup files -->
@@ -420,7 +420,7 @@
       </files>
     </component>
     
-    <component Cclass="Device" Cgroup="Startup_MDR1986BE1T" Cversion="1.3.1" condition="CON_MDR1986BE1T">
+    <component Cclass="Device" Cgroup="Startup" Cversion="1.3.1" condition="CON_MDR1986BE1T">
       <description>System Startup for MDR1986BE1T device series</description>
       <files>
         <!-- startup files -->
@@ -437,7 +437,7 @@
       </files>
     </component>
     
-    <component Cclass="Device" Cgroup="Startup_MDR1986BE3T" Cversion="1.3.1" condition="CON_MDR1986BE3T">
+    <component Cclass="Device" Cgroup="Startup" Cversion="1.3.1" condition="CON_MDR1986BE3T">
       <description>System Startup for MDR1986BE3T device series</description>
       <files>
         <!-- startup files -->
@@ -453,7 +453,7 @@
       </files>
     </component>
     
-    <component Cclass="Device" Cgroup="Startup_MDR1986BE4" Cversion="1.3.1" condition="CON_MDR1986BE4">
+    <component Cclass="Device" Cgroup="Startup" Cversion="1.3.1" condition="CON_MDR1986BE4">
       <description>System Startup for MDR1986BE4 device series</description>
       <files>
         <!-- startup files -->
