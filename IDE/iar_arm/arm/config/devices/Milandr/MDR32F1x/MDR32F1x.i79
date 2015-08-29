@@ -30,7 +30,7 @@ name=Cortex-M3
 name=Milandr\jbr_1986BE9x.ddf
 
 
-[XCL FILE]
+[LINKER FILE]
 //Name of the linker config file
 name=$TOOLKIT_DIR$\config\linker\Milandr\MDR1986VE9x\MDR32F1.icf
 

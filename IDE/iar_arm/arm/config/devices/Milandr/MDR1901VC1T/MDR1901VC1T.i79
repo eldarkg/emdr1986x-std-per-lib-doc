@@ -3,7 +3,7 @@ rev=1.6
 
 [CHIP]
 //Chip name
-name=1901ÂÖ1Ò
+name=1901VCT1
 
 //What endian modes does the chip support? (littleonly, bigonly, both(default))
 endiansupport=littleonly
@@ -27,18 +27,16 @@ name=Cortex-M3
 
 [DDF FILE]
 //Name of the ddf file
-name=Milandr\iomdr32f1.ddf
+name=Milandr\jbr_MDR1901VC1T.ddf
 
 
-[XCL FILE]
+[LINKER FILE]
 //Name of the linker config file
-// This feature is not supported yet......
-name=Milandr\MDR32F1.icf
+name=$TOOLKIT_DIR$\config\linker\Milandr\MDR1901VC1T\MDR1901VC1T.icf
 
 
 [FLASH LOADER]
-name=$TOOLKIT_DIR$\config\flashloader\Milandr\FlashMDR32F1x.board
+name=$TOOLKIT_DIR$\config\flashloader\Milandr\MDR1901VC1T\MDR1901VC1T.board
 little=
 big=
 args=
-

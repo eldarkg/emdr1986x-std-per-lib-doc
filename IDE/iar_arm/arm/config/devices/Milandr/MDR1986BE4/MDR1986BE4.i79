@@ -29,9 +29,9 @@ name=Cortex-M0
 name=Milandr\MDR1986BE4.ddf
 
 
-[XCL FILE]
+[LINKER FILE]
 //Name of the linker config file
-name=Milandr\MDR1986BE4\MDR1986BE4.icf
+name=$TOOLKIT_DIR$\config\linker\Milandr\MDR1986BE4\MDR1986BE4.icf
 
 
 [FLASH LOADER]

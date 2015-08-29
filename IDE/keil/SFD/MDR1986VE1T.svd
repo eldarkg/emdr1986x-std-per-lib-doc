@@ -9503,7 +9503,7 @@
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <resetMask>0xF8077FFF</resetMask>
+          <resetMask>0xF0077FFF</resetMask>
           <fields>
             <field>
               <name>ColWnd</name>
@@ -9513,32 +9513,32 @@
             </field>
             <field>
               <name>PAUSE_EN</name>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>DTRM_EN</name>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>HD_EN</name>
+              <name>DTRM_EN</name>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>EXT_EN</name>
+              <name>HD_EN</name>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>BUFF_MODE</name>
+              <name>EXT_EN</name>
               <bitOffset>11</bitOffset>
-              <bitWidth>3</bitWidth>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>BUFF_MODE</name>
+              <bitOffset>12</bitOffset>
+              <bitWidth>2</bitWidth>
               <access>read-write</access>
             </field>
             <field>
@@ -9567,20 +9567,20 @@
             </field>
             <field>
               <name>DBG_RF_EN</name>
-              <bitOffset>27</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>DBG_XF_EN</name>
               <bitOffset>28</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>DBG_MODE</name>
+              <name>DBG_XF_EN</name>
               <bitOffset>29</bitOffset>
-              <bitWidth>3</bitWidth>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DBG_MODE</name>
+              <bitOffset>30</bitOffset>
+              <bitWidth>2</bitWidth>
               <access>read-write</access>
             </field>
           </fields>

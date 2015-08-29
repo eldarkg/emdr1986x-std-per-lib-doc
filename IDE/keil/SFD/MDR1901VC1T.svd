@@ -1652,6 +1652,28 @@
             </field>
           </fields>
         </register>
+        <register>
+          <name>CTRL</name>
+          <addressOffset>0x00000014</addressOffset>
+          <size>32</size>
+          <access>read-write</access>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0x00000003</resetMask>
+          <fields>
+            <field>
+              <name>ICEN</name>
+              <bitOffset>0</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>DCEN</name>
+              <bitOffset>1</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
       </registers>
     </peripheral>
     <peripheral>
@@ -1902,25 +1924,19 @@
               <access>read-write</access>
             </field>
             <field>
-              <name>AUC_SEL1</name>
+              <name>AUC_C1_SEL</name>
               <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
+              <bitWidth>2</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>AUC_SEL0</name>
-              <bitOffset>17</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>AUC_SEL2</name>
+              <name>AUC_C2_SEL</name>
               <bitOffset>20</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>AUC_SEL3</name>
+              <name>AUC_C3_SEL</name>
               <bitOffset>24</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-write</access>
@@ -2086,7 +2102,7 @@
           <size>32</size>
           <access>read-write</access>
           <resetValue>0x00000000</resetValue>
-          <resetMask>0x0300FFFF</resetMask>
+          <resetMask>0x07FFFFFF</resetMask>
           <fields>
             <field>
               <name>SSP1_BRG</name>
@@ -2101,6 +2117,12 @@
               <access>read-write</access>
             </field>
             <field>
+              <name>SSP3_BRG</name>
+              <bitOffset>16</bitOffset>
+              <bitWidth>8</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
               <name>SSP1_CLK_EN</name>
               <bitOffset>24</bitOffset>
               <bitWidth>1</bitWidth>
@@ -2109,6 +2131,12 @@
             <field>
               <name>SSP2_CLK_EN</name>
               <bitOffset>25</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>SSP3_CLK_EN</name>
+              <bitOffset>26</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -3250,20 +3278,26 @@
               <access>read-write</access>
             </field>
             <field>
-              <name>DB</name>
+              <name>BR</name>
               <bitOffset>6</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>CRCEN_CMD</name>
+              <name>CRC_EN_DATA</name>
               <bitOffset>9</bitOffset>
+      <bitWidth>1</bitWidth>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CRC_EN_CMD</name>
+              <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>TXEIE_DAT</name>
-              <bitOffset>10</bitOffset>
+              <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
@@ -3292,7 +3326,7 @@
               <access>read-write</access>
             </field>
             <field>
-              <name>RXFIE_CMD</name>
+              <name>RXFEIE_CMD</name>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -3967,11 +4001,11 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>MDR_TIM1</name>
+      <name>MDR_TIMER1</name>
       <version>1.0</version>
       <description>TIMER1</description>
-      <groupName>TIM</groupName>
-      <prependToName>MDR_TIM1_</prependToName>
+      <groupName>TIMER</groupName>
+      <prependToName>MDR_TIMER1_</prependToName>
       <baseAddress>0x40070000</baseAddress>
       <size>32</size>
       <access>read-write</access>
@@ -4579,22 +4613,22 @@
         </register>
       </registers>
     </peripheral>
-    <peripheral derivedFrom="MDR_TIM1">
-      <name>MDR_TIM2</name>
+    <peripheral derivedFrom="MDR_TIMER1">
+      <name>MDR_TIMER2</name>
       <description>TIMER2</description>
-      <groupName>TIM</groupName>
-      <prependToName>MDR_TIM2_</prependToName>
+      <groupName>TIMER</groupName>
+      <prependToName>MDR_TIMER2_</prependToName>
       <baseAddress>0x40078000</baseAddress>
       <interrupt>
         <name>Timer2_IRQ</name>
         <value>15</value>
       </interrupt>
     </peripheral>
-    <peripheral derivedFrom="MDR_TIM1">
-      <name>MDR_TIM3</name>
+    <peripheral derivedFrom="MDR_TIMER1">
+      <name>MDR_TIMER3</name>
       <description>TIMER3</description>
-      <groupName>TIM</groupName>
-      <prependToName>MDR_TIM3_</prependToName>
+      <groupName>TIMER</groupName>
+      <prependToName>MDR_TIMER3_</prependToName>
       <baseAddress>0x40080000</baseAddress>
       <interrupt>
         <name>Timer3_IRQ</name>
@@ -4630,61 +4664,61 @@
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
             <field>
-              <name>Cfg_REG_ADON</name>
+              <name>REG_ADON</name>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_REG_GO</name>
+              <name>REG_GO</name>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_REG_CLKS</name>
+              <name>REG_CLKS</name>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_REG_SAMPLE</name>
+              <name>REG_SAMPLE</name>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_REG_CHS</name>
+              <name>REG_CHS</name>
               <bitOffset>4</bitOffset>
               <bitWidth>5</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_REG_CHCH</name>
+              <name>REG_CHCH</name>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_REG_RNGC</name>
+              <name>REG_RNGC</name>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_M_REF</name>
+              <name>M_REF</name>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_REG_DIVCLK</name>
+              <name>REG_DIVCLK</name>
               <bitOffset>12</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_Sync_Conver</name>
+              <name>Sync_Conver</name>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -4743,55 +4777,55 @@
           <resetMask>0x0E06FFFF</resetMask>
           <fields>
             <field>
-              <name>Cfg_REG_ADON</name>
+name>REG_ADON</name>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_REG_GO</name>
+              <name>REG_GO</name>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_REG_CLKS</name>
+              <name>REG_CLKS</name>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_REG_SAMPLE</name>
+              <name>REG_SAMPLE</name>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_REG_CHS</name>
+              <name>REG_CHS</name>
               <bitOffset>4</bitOffset>
               <bitWidth>5</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_REG_CHCH</name>
+              <name>REG_CHCH</name>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_REG_RNGC</name>
+              <name>REG_RNGC</name>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_M_REF</name>
+              <name>M_REF</name>
               <bitOffset>11</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_REG_DIVCLK</name>
+              <name>REG_DIVCLK</name>
               <bitOffset>12</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-write</access>
@@ -5445,31 +5479,31 @@
           <resetMask>0x0000001F</resetMask>
           <fields>
             <field>
-              <name>Cfg_M_REF0</name>
+  <name>M_REF0</name>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_M_REF1</name>
+              <name>M_REF1</name>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_ON_DAC0</name>
+              <name>ON_DAC0</name>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_ON_DAC1</name>
+              <name>ON_DAC1</name>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
-              <name>Cfg_SYNC_A</name>
+              <name>SYNC_A</name>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>

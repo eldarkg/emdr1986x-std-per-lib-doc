@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    Examples/MDR1986VE1T_EVAL/UART/Interrupt/MDR1986VE1T_IT.h
+  * @file    Examples/MDR32F9Q1_EVAL/UART/Interrupt/MDR32F9Qx_it.h
   * @author  Milandr Application Team
   * @version V1.2.0
   * @date    03/04/2013
@@ -20,8 +20,8 @@
   */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __MDR1986VE1T_IT_H
-#define __MDR1986VE1T_IT_H
+#ifndef __MDR1986VE3_IT_H
+#define __MDR1986VE3_IT_H
 
 /* Function prototypes -----------------------------------------------*/
 
@@ -55,14 +55,15 @@ void ARINC429T1_IRQHandler(void);
 void ARINC429T2_IRQHandler(void);
 void ARINC429T3_IRQHandler(void);
 void ARINC429T4_IRQHandler(void);
+void KEYPAD_IRQHandler(void);
 void BKP_IRQHandler(void);
 void EXT_INT1_IRQHandler(void);
 void EXT_INT2_IRQHandler(void);
 void EXT_INT3_IRQHandler(void);
 void EXT_INT4_IRQHandler(void);
 
-#endif /* __MDR1986VE1T_IT_H */
+#endif /* __MDR1986VE3_IT_H */
 
 /******************* (C) COPYRIGHT 2013 Milandr *********/
 
-/* END OF FILE MDR1986VE1T_IT.h */
+/* END OF FILE MDR1986VE3_IT.h */

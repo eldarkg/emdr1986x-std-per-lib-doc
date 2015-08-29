@@ -30,10 +30,10 @@ name=Cortex-M1
 name=Milandr\jbr_MDR1986VE1T.ddf
 
 
-[XCL FILE]
+[LINKER FILE]
 //Name of the linker config file
 // This feature is not supported yet......
-name=Milandr\MDR1986VE1T\MDR1986VE1T.icf
+name=$TOOLKIT_DIR$\config\linker\Milandr\MDR1986VE1T\MDR1986VE1T.icf
 
 
 [FLASH LOADER]
