@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<device  schemaVersion="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="CMSIS-SVD_Schema_1_1.xsd>
+<device  schemaVersion="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="CMSIS-SVD_Schema_1_1.xsd">
   <vendor>Milandr</vendor>
   <vendorID>Milandr</vendorID>
   <name>MDR1986BE1T</name>
