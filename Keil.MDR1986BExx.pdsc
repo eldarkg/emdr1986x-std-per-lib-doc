@@ -18,7 +18,7 @@
         <device Dname="MDR1986BE91">
           <processor  Dcore="Cortex-M3" DcoreVersion="r0p0" Dfpu="NO_FPU" Dmpu="NO_MPU" Dendian="Little-endian" Dclock="80000000"/>
           <compile    header="Libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\inc\MDR32Fx.h" define="USE_MDR32F9Q1_Rev1"/>
-          <debug      svd="IDE\keil\SVD\MDR1986BE91.svd"/>
+          <debug      svd="IDE\keil\SFD\MDR1986BE91.svd"/>
           <memory     id="IROM1"                          start="0x08000000"  size="0x20000"    startup="1"   default="1"/>
           <memory     id="IRAM1"                          start="0x20000000"  size="0x8000"     init   ="0"   default="1"/>
           <algorithm  name="Flash\1986BE9x.FLM"           start="0x08000000"  size="0x20000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
@@ -76,7 +76,7 @@
         <device Dname="MDR1986BE92">
           <processor  Dcore="Cortex-M3" DcoreVersion="r0p0" Dfpu="0" Dmpu="0" Dendian="Little-endian" Dclock="80000000"/>
           <compile    header="Libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\inc\MDR32Fx.h" define="USE_MDR32F9Q2_Rev1"/>
-          <debug      svd="IDE\keil\SVD\MDR1986BE92.svd"/>
+          <debug      svd="IDE\keil\SFD\MDR1986BE92.svd"/>
           <memory     id="IROM1"                          start="0x08000000"  size="0x20000"    startup="1"   default="1"/>
           <memory     id="IRAM1"                          start="0x20000000"  size="0x8000"     init   ="0"   default="1"/>
           <algorithm  name="Flash\1986BE9x.FLM"           start="0x08000000"  size="0x20000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
@@ -132,9 +132,9 @@
         
         <!-- MDR1986BE93 -->
         <device Dname="MDR1986BE93">
-          <processor Dcore="Cortex-M3" DcoreVersion="r0p0" Dfpu="0" Dmpu="0" Dendian="Little-endian" Dclock="80000000"/>
-          <compile header="Libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\inc\MDR32Fx.h" define="USE_MDR32F9Q3_Rev1"/>
-          <debug      svd="IDE\keil\SVD\MDR1986BE93.svd"/>
+          <processor  Dcore="Cortex-M3" DcoreVersion="r0p0" Dfpu="0" Dmpu="0" Dendian="Little-endian" Dclock="80000000"/>
+          <compile    header="Libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\inc\MDR32Fx.h" define="USE_MDR32F9Q3_Rev1"/>
+          <debug      svd="IDE\keil\SFD\MDR1986BE93.svd"/>
           <memory     id="IROM1"                          start="0x08000000"  size="0x20000"    startup="1"   default="1"/>
           <memory     id="IRAM1"                          start="0x20000000"  size="0x8000"     init   ="0"   default="1"/>
           <algorithm  name="Flash\1986BE9x.FLM"           start="0x08000000"  size="0x20000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
@@ -190,11 +190,11 @@
       <subFamily DsubFamily="Cortex-M1">
         <!-- MDR1986BE1T -->
         <device Dname="MDR1986BE1T">
-          <processor Dcore="Cortex-M1" DcoreVersion="r0p0" Dfpu="0" Dmpu="0" Dendian="Little-endian" Dclock="144000000"/>
-          <compile header="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE1T\inc\MDR1986VE1T.h" define="USE_MDR1986VE1T"/>
-          <debug      svd="IDE\keil\SVD\MDR1986VE1T.svd"/>
+          <processor  Dcore="Cortex-M1" DcoreVersion="r0p0" Dfpu="0" Dmpu="0" Dendian="Little-endian" Dclock="144000000"/>
+          <compile    header="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE1T\inc\MDR1986VE1T.h" define="USE_MDR1986VE1T"/>
+          <debug      svd="IDE\keil\SFD\MDR1986VE1T.svd"/>
           <memory     id="IROM1"                          start="0x00000000"  size="0x20000"    startup="1"   default="1"/>
-      <memory     id="IRAM1"                          start="0x20000000"  size="0x8000"     init   ="0"   default="1"/>
+          <memory     id="IRAM1"                          start="0x20000000"  size="0x8000"     init   ="0"   default="1"/>
           <memory     id="IRAM2"                          start="0x20100000"  size="0x4000"     init   ="0"   default="1"/>
           <algorithm  name="Flash\1986BE1T.FLM"           start="0x00000000"  size="0x20000" RAMstart="0x20100000" RAMsize="0x4000" default="1"/>
           <description>
@@ -251,15 +251,15 @@
         
         <!-- MDR1986BE3T -->
         <device Dname="MDR1986BE3T">
-          <processor Dcore="Cortex-M1" DcoreVersion="r0p0" Dfpu="0" Dmpu="0" Dendian="Little-endian" Dclock="80000000"/>
-          <compile header="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE3\inc\MDR1986VE3.h" define="USE_MDR1986VE3"/>
-          <debug      svd="IDE\keil\SVD\MDR1986BE3T.svd"/>
+          <processor  Dcore="Cortex-M1" DcoreVersion="r0p0" Dfpu="0" Dmpu="0" Dendian="Little-endian" Dclock="80000000"/>
+          <compile    header="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE3\inc\MDR1986VE3.h" define="USE_MDR1986VE3"/>
+          <debug      svd="IDE\keil\SFD\MDR1986BE3T.svd"/>
           <memory     id="IROM1"                          start="0x00000000"  size="0x20000"    startup="1"   default="1"/>
           <memory     id="IRAM1"                          start="0x20000000"  size="0x8000"     init   ="0"   default="1"/>
           <memory     id="IRAM2"                          start="0x20100000"  size="0x4000"     init   ="0"   default="1"/>
           <algorithm  name="Flash\1986BE3T.FLM"           start="0x00000000"  size="0x20000" RAMstart="0x20100000" RAMsize="0x4000" default="1"/>
           <description>
-                        (1986BE3T RUS)
+            (1986BE3T RUS)
             Core:
              - 32-bit ARM Cortex-M1 processor, running at frequencies of up to 140 MHz
              - 0.8 DMIPS/MHz (Dhrystone 2.1) performance at 0 wait state memory access
@@ -315,7 +315,7 @@
             <device Dname="MDR1986BE4">
               <processor  Dcore="Cortex-M0" DcoreVersion="r0p0" Dfpu="0" Dmpu="0" Dendian="Little-endian" Dclock="36000000"/>
               <compile    header="Libraries\CMSIS\CM0\DeviceSupport\MDR1986BE4\inc\MDR1986BE4.h" define="USE_MDR1986BE4"/>
-              <debug      svd="IDE\keil\SVD\MDR1986BE4.svd"/>
+              <debug      svd="IDE\keil\SFD\MDR1986BE4.svd"/>
               <memory     id="IROM1"                          start="0x00000000"  size="0x20000"    startup="1"   default="1"/>
               <memory     id="IRAM1"                          start="0x20000000"  size="0x4000"     init   ="0"   default="1"/>
               <algorithm  name="Flash\1986BE4.FLM"            start="0x00000000"  size="0x20000"    RAMstart="0x20000000" RAMsize="0x4000" default="1"/>
@@ -371,7 +371,7 @@
   
  <conditions> 
   <condition id="CON_MDR1986BE9x">
-    <description>MDR1986BExx device</description>
+    <description>MDR1986BE9x device</description>
     <accept Dname="MDR1986BE91"/>
     <accept Dname="MDR1986BE92"/>
     <accept Dname="MDR1986BE93"/>
@@ -381,24 +381,24 @@
     <accept Dname="MDR1986BE1T"/>
   </condition>
   <condition id="CON_MDR1986BE3T">
-    <description>MDR1986BE1T device</description>
+    <description>MDR1986BE3T device</description>
     <accept Dname="MDR1986BE3T"/>
   </condition>
-  <condition id="CON_MDR1986BXX">
-    <description>MDR1986BEXX device</description>
+  <condition id="CON_MDR1986Bxx">
+    <description>MDR1986BExx device</description>
     <accept Dname="MDR1986BE91"/>
     <accept Dname="MDR1986BE92"/>
     <accept Dname="MDR1986BE93"/>
     <accept Dname="MDR1986BE1T"/>
     <accept Dname="MDR1986BE3T"/>
   </condition>
-    <condition id="CON_MDR1986BEXT">
-    <description>MDR1986BEXT device</description>
+    <condition id="CON_MDR1986BExT">
+    <description>MDR1986BExT device</description>
     <accept Dname="MDR1986BE1T"/>
     <accept Dname="MDR1986BE3T"/>
   </condition>  
   <condition id="CON_MDR1986BE4">
-    <description>MDR1986BE1T device</description>
+    <description>MDR1986BE4T device</description>
     <accept Dname="MDR1986BE4"/>
   </condition>
 </conditions>
@@ -410,9 +410,9 @@
         <!-- startup files -->
         <file category="source" name="Libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm\startup_MDR32F9Qx.s" attr="config"/>
         <!-- system file -->      
-        <file category="source" name="Libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm\system_MDR32F9Qx.c" attr="config"/>
+        <file category="source" name="Libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\system_MDR32F9Qx.c" attr="config"/>
         <!-- header file-->
-        <file category="header" name="Libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm\system_MDR32F9Qx.h" attr="config"/>
+        <file category="header" name="Libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\system_MDR32F9Qx.h" attr="config"/>
         <!-- header file-->
         <file category="header" name="Libraries\CMSIS\CM3\CoreSupport\core_cm3.h"/>
         <!-- header file-->
@@ -426,9 +426,9 @@
         <!-- startup files -->
         <file category="source" name="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE1T\startup\arm\startup_MDR1986VE1T.s" attr="config"/>
         <!-- system file -->      
-        <file category="source" name="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE1T\startup\arm\system_MDR1986VE1T.c" attr="config"/>
+        <file category="source" name="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE1T\startup\system_MDR1986VE1T.c" attr="config"/>
         <!-- header file-->
-        <file category="header" name="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE1T\startup\arm\system_MDR1986VE1T.h" attr="config"/>
+        <file category="header" name="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE1T\startup\system_MDR1986VE1T.h" attr="config"/>
         <!-- header file-->
         <file category="header" name="Libraries\CMSIS\CM1\CoreSupport\core_cm1.h"/>
         <!-- system file -->
@@ -443,9 +443,9 @@
         <!-- startup files -->
         <file category="source" name="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE3\startup\arm\startup_MDR1986VE3.s" attr="config"/>
         <!-- system file -->      
-        <file category="source" name="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE3\startup\arm\system_MDR1986VE3.c" attr="config"/>
+        <file category="source" name="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE3\startup\system_MDR1986VE3.c" attr="config"/>
         <!-- header file-->
-        <file category="header" name="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE3\startup\arm\system_MDR1986VE3.h" attr="config"/>
+        <file category="header" name="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE3\startup\system_MDR1986VE3.h" attr="config"/>
         <!-- header file-->
         <file category="header" name="Libraries\CMSIS\CM1\CoreSupport\core_cm1.h"/>
         <!-- header file-->
@@ -459,9 +459,9 @@
         <!-- startup files -->
         <file category="source" name="Libraries\CMSIS\CM0\DeviceSupport\MDR1986BE4\startup\arm\startup_MDR1986BE4.s" attr="config"/>
         <!-- system file -->      
-        <file category="source" name="Libraries\CMSIS\CM0\DeviceSupport\MDR1986BE4\startup\arm\system_MDR1986BE4.c" attr="config"/>
+        <file category="source" name="Libraries\CMSIS\CM0\DeviceSupport\MDR1986BE4\startup\system_MDR1986BE4.c" attr="config"/>
         <!-- header file-->
-        <file category="header" name="Libraries\CMSIS\CM0\DeviceSupport\MDR1986BE4\startup\arm\system_MDR1986BE4.h" attr="config"/>
+        <file category="header" name="Libraries\CMSIS\CM0\DeviceSupport\MDR1986BE4\startup\system_MDR1986BE4.h" attr="config"/>
         <!-- header file-->
         <file category="header" name="Libraries\CMSIS\CM0\CoreSupport\core_cm0.h"/>
         <!-- header file-->
