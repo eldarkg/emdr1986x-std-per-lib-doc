@@ -10,10 +10,10 @@
       01/15/2014, Initial version
     </release>
   </releases>
-    
+
   <devices>
-    <family Dfamily="Milandr" Dvendor="Milandr:99">    
-      <subFamily DsubFamily="Cortex-M3">         
+    <family Dfamily="Milandr" Dvendor="Milandr:99">
+      <subFamily DsubFamily="Cortex-M3">
         <!-- MDR1986BE91 -->
         <device Dname="MDR1986BE91">
           <processor  Dcore="Cortex-M3" DcoreVersion="r0p0" Dfpu="NO_FPU" Dmpu="NO_MPU" Dendian="Little-endian" Dclock="80000000"/>
@@ -71,7 +71,7 @@
              - 2 * JTAG and SWD
           </description>
         </device>
-        
+
         <!-- MDR1986BE92 -->
         <device Dname="MDR1986BE92">
           <processor  Dcore="Cortex-M3" DcoreVersion="r0p0" Dfpu="0" Dmpu="0" Dendian="Little-endian" Dclock="80000000"/>
@@ -129,7 +129,7 @@
              - 2 * JTAG and SWD
           </description>
         </device>
-        
+
         <!-- MDR1986BE93 -->
         <device Dname="MDR1986BE93">
           <processor  Dcore="Cortex-M3" DcoreVersion="r0p0" Dfpu="0" Dmpu="0" Dendian="Little-endian" Dclock="80000000"/>
@@ -248,7 +248,7 @@
              - JTAG and SWD
           </description>
         </device>
-        
+
         <!-- MDR1986BE3T -->
         <device Dname="MDR1986BE3T">
           <processor  Dcore="Cortex-M1" DcoreVersion="r0p0" Dfpu="0" Dmpu="0" Dendian="Little-endian" Dclock="80000000"/>
@@ -288,21 +288,21 @@
              - battery domain with RTC and backup registers
 
             Analog features:
-            - 12-bit ADC (up to 8 channels) with the amplitude of the measured signals from 0 to 3.6 V 
-            - Dual-channel 12-bit DAC 
-            - 32-bit PWM (up to 8 channels) 
+            - 12-bit ADC (up to 8 channels) with the amplitude of the measured signals from 0 to 3.6 V
+            - Dual-channel 12-bit DAC
+            - 32-bit PWM (up to 8 channels)
             - Single channel bit delta/sigma  ADC bit 16-bit output reports
             - Single channel bit elta/sigma DAC with 16-bit input reports
             - Temperature sensor
 
             Peripheral features:
             - Controller direct memory access functions for communicating Peripherals-Memory, Memory, Memory
-            - Two CAN controller interface 
-            - Digital interface controller according to GOST 18977-79 
-            - Two digital interface controller according to GOST R52070-2003 
-            - Two digital controller Ethernet 10/100 PHY Transceiver 
-            - USB interface controller with functions of Device and Host 
-            - Interface controllers 4hUART, 4hSPI 
+            - Two CAN controller interface
+            - Digital interface controller according to GOST 18977-79
+            - Two digital interface controller according to GOST R52070-2003
+            - Two digital controller Ethernet 10/100 PHY Transceiver
+            - USB interface controller with functions of Device and Host
+            - Interface controllers 4hUART, 4hSPI
             - Controller AudioCodec - Up to 144 user I / O lines
 
             Debug mode:
@@ -310,7 +310,7 @@
           </description>
         </device>
       </subFamily>
-        <subFamily DsubFamily="Cortex-M0">         
+        <subFamily DsubFamily="Cortex-M0">
             <!-- MDR1986BE4 -->
             <device Dname="MDR1986BE4">
               <processor  Dcore="Cortex-M0" DcoreVersion="r0p0" Dfpu="0" Dmpu="0" Dendian="Little-endian" Dclock="36000000"/>
@@ -368,8 +368,8 @@
         </subFamily>
     </family>
   </devices>
-  
- <conditions> 
+
+ <conditions>
   <condition id="CON_MDR1986BE9x">
     <description>MDR1986BE9x device</description>
     <accept Dname="MDR1986BE91"/>
@@ -396,20 +396,20 @@
     <description>MDR1986BExT device</description>
     <accept Dname="MDR1986BE1T"/>
     <accept Dname="MDR1986BE3T"/>
-  </condition>  
+  </condition>
   <condition id="CON_MDR1986BE4">
     <description>MDR1986BE4T device</description>
     <accept Dname="MDR1986BE4"/>
   </condition>
 </conditions>
-    
+
   <components>
     <component Cclass="Device" Cgroup="Startup_MDR1986BE9x" Cversion="1.3.1" condition="CON_MDR1986BE9x">
       <description>System Startup for MDR1986BE9x device series</description>
       <files>
         <!-- startup files -->
         <file category="source" name="Libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\arm\startup_MDR32F9Qx.s" attr="config"/>
-        <!-- system file -->      
+        <!-- system file -->
         <file category="source" name="Libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\system_MDR32F9Qx.c" attr="config"/>
         <!-- header file-->
         <file category="header" name="Libraries\CMSIS\CM3\DeviceSupport\MDR32F9Qx\startup\system_MDR32F9Qx.h" attr="config"/>
@@ -419,13 +419,13 @@
         <file category="header" name="Config\MDR32F9Qx_config.h"/>
       </files>
     </component>
-    
+
     <component Cclass="Device" Cgroup="Startup_MDR1986BE1T" Cversion="1.3.1" condition="CON_MDR1986BE1T">
       <description>System Startup for MDR1986BE1T device series</description>
       <files>
         <!-- startup files -->
         <file category="source" name="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE1T\startup\arm\startup_MDR1986VE1T.s" attr="config"/>
-        <!-- system file -->      
+        <!-- system file -->
         <file category="source" name="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE1T\startup\system_MDR1986VE1T.c" attr="config"/>
         <!-- header file-->
         <file category="header" name="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE1T\startup\system_MDR1986VE1T.h" attr="config"/>
@@ -436,13 +436,13 @@
         <file category="header" name="Config\MDR32F9Qx_config.h"/>
       </files>
     </component>
-    
+
     <component Cclass="Device" Cgroup="Startup_MDR1986BE3T" Cversion="1.3.1" condition="CON_MDR1986BE3T">
       <description>System Startup for MDR1986BE3T device series</description>
       <files>
         <!-- startup files -->
         <file category="source" name="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE3\startup\arm\startup_MDR1986VE3.s" attr="config"/>
-        <!-- system file -->      
+        <!-- system file -->
         <file category="source" name="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE3\startup\system_MDR1986VE3.c" attr="config"/>
         <!-- header file-->
         <file category="header" name="Libraries\CMSIS\CM1\DeviceSupport\MDR1986VE3\startup\system_MDR1986VE3.h" attr="config"/>
@@ -452,13 +452,13 @@
         <file category="header" name="Config\MDR32F9Qx_config.h"/>
       </files>
     </component>
-    
+
     <component Cclass="Device" Cgroup="Startup_MDR1986BE4" Cversion="1.3.1" condition="CON_MDR1986BE4">
       <description>System Startup for MDR1986BE4 device series</description>
       <files>
         <!-- startup files -->
         <file category="source" name="Libraries\CMSIS\CM0\DeviceSupport\MDR1986BE4\startup\arm\startup_MDR1986BE4.s" attr="config"/>
-        <!-- system file -->      
+        <!-- system file -->
         <file category="source" name="Libraries\CMSIS\CM0\DeviceSupport\MDR1986BE4\startup\system_MDR1986BE4.c" attr="config"/>
         <!-- header file-->
         <file category="header" name="Libraries\CMSIS\CM0\DeviceSupport\MDR1986BE4\startup\system_MDR1986BE4.h" attr="config"/>
@@ -468,42 +468,42 @@
         <file category="header" name="Config\MDR32F9Qx_config.h"/>
       </files>
     </component>
-            
+
     <!-- Lib File -->
-    <component Cclass="Drivers" Cgroup="LIB" Cversion="1.3.1" condition="CON_MDR1986BXX">
+    <component Cclass="Drivers" Cgroup="LIB" Cversion="1.3.1" condition="CON_MDR1986Bxx">
       <description>LIB file for MDR1986BExx Series</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_lib.h"/>
       </files>
-    </component>    
-    
+    </component>
+
     <!-- ADC Driver -->
-    <component Cclass="Drivers" Cgroup="ADC" Cversion="1.3.1" condition="CON_MDR1986BXX">
+    <component Cclass="Drivers" Cgroup="ADC" Cversion="1.3.1" condition="CON_MDR1986Bxx">
       <description>ADC driver for MDR1986BExx Series</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_adc.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_adc.c"/>
       </files>
     </component>
-    
+
     <!-- BKP Driver -->
-    <component Cclass="Drivers" Cgroup="BKP" Cversion="1.3.1" condition="CON_MDR1986BXX">
+    <component Cclass="Drivers" Cgroup="BKP" Cversion="1.3.1" condition="CON_MDR1986Bxx">
       <description>BKP driver for MDR1986BExx Series</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_bkp.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_bkp.c"/>
       </files>
     </component>
-    
+
     <!-- CAN Driver -->
-    <component Cclass="Drivers" Cgroup="CAN" Cversion="1.3.1" condition="CON_MDR1986BXX">
+    <component Cclass="Drivers" Cgroup="CAN" Cversion="1.3.1" condition="CON_MDR1986Bxx">
       <description>CAN driver for MDR1986BExx Series</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_can.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_can.c"/>
       </files>
     </component>
-    
+
     <!-- COMP Driver -->
     <component Cclass="Drivers" Cgroup="COMP" Cversion="1.3.1" condition="CON_MDR1986BE9x">
       <description>COMP driver for MDR1986BE9x Series</description>
@@ -512,43 +512,43 @@
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_comp.c"/>
       </files>
     </component>
-    
+
     <!-- DAC Driver -->
-    <component Cclass="Drivers" Cgroup="DAC" Cversion="1.3.1" condition="CON_MDR1986BXX">
+    <component Cclass="Drivers" Cgroup="DAC" Cversion="1.3.1" condition="CON_MDR1986Bxx">
       <description>DAC driver for MDR1986BExx Series</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_dac.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_dac.c"/>
       </files>
     </component>
-    
+
     <!-- DMA Driver -->
-    <component Cclass="Drivers" Cgroup="DMA" Cversion="1.3.1" condition="CON_MDR1986BXX">
+    <component Cclass="Drivers" Cgroup="DMA" Cversion="1.3.1" condition="CON_MDR1986Bxx">
       <description>DMA driver for MDR1986BExx Series</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_dma.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_dma.c"/>
       </files>
     </component>
-    
+
     <!-- EBC Driver -->
-    <component Cclass="Drivers" Cgroup="EBC" Cversion="1.3.1" condition="CON_MDR1986BXX">
+    <component Cclass="Drivers" Cgroup="EBC" Cversion="1.3.1" condition="CON_MDR1986Bxx">
       <description>EBC driver for MDR1986BExx Series</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_ebc.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_ebc.c"/>
       </files>
     </component>
-    
+
     <!-- EEPROM Driver -->
-    <component Cclass="Drivers" Cgroup="EEMPROM" Cversion="1.3.1" condition="CON_MDR1986BXX">
+    <component Cclass="Drivers" Cgroup="EEMPROM" Cversion="1.3.1" condition="CON_MDR1986Bxx">
       <description>EEPROM driver for MDR1986BExx Series</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_eeprom.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_eeprom.c"/>
       </files>
     </component>
-    
+
     <!-- I2C Driver -->
     <component Cclass="Drivers" Cgroup="I2C" Cversion="1.3.1" condition="CON_MDR1986BE9x">
       <description>I2C driver for MDR1986BE9x Series</description>
@@ -557,97 +557,97 @@
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_i2c.c"/>
       </files>
     </component>
-    
+
     <!-- IWDG Driver -->
-    <component Cclass="Drivers" Cgroup="IWDG" Cversion="1.3.1" condition="CON_MDR1986BXX">
+    <component Cclass="Drivers" Cgroup="IWDG" Cversion="1.3.1" condition="CON_MDR1986Bxx">
       <description>IWDG driver for MDR1986BExx Series</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_iwdg.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_iwdg.c"/>
       </files>
     </component>
-    
+
     <!-- PORT Driver -->
-    <component Cclass="Drivers" Cgroup="PORT" Cversion="1.3.1" condition="CON_MDR1986BXX">
+    <component Cclass="Drivers" Cgroup="PORT" Cversion="1.3.1" condition="CON_MDR1986Bxx">
       <description>PORT driver for MDR1986BExx Series</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_port.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_port.c"/>
       </files>
     </component>
-    
+
     <!-- POWER Driver -->
-    <component Cclass="Drivers" Cgroup="POWER" Cversion="1.3.1" condition="CON_MDR1986BXX">
+    <component Cclass="Drivers" Cgroup="POWER" Cversion="1.3.1" condition="CON_MDR1986Bxx">
       <description>POWER driver for MDR1986BExx Series</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_power.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_power.c"/>
       </files>
     </component>
-    
+
     <!-- RST_CLK Driver -->
-    <component Cclass="Drivers" Cgroup="RST_CLK" Cversion="1.3.1" condition="CON_MDR1986BXX">
+    <component Cclass="Drivers" Cgroup="RST_CLK" Cversion="1.3.1" condition="CON_MDR1986Bxx">
       <description>RST_CLK driver for MDR1986BExx Series</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_rst_clk.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_rst_clk.c"/>
       </files>
     </component>
-    
+
     <!-- SSP Driver -->
-    <component Cclass="Drivers" Cgroup="SSP" Cversion="1.3.1" condition="CON_MDR1986BXX">
+    <component Cclass="Drivers" Cgroup="SSP" Cversion="1.3.1" condition="CON_MDR1986Bxx">
       <description>SSP driver for MDR1986BExx Series</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_ssp.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_ssp.c"/>
       </files>
     </component>
-    
+
     <!-- TIMER Driver -->
-    <component Cclass="Drivers" Cgroup="TIMER" Cversion="1.3.1" condition="CON_MDR1986BXX">
+    <component Cclass="Drivers" Cgroup="TIMER" Cversion="1.3.1" condition="CON_MDR1986Bxx">
       <description>TIMER driver for MDR1986BExx Series</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_timer.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_timer.c"/>
       </files>
     </component>
-    
+
     <!-- UART Driver -->
-    <component Cclass="Drivers" Cgroup="UART" Cversion="1.3.1" condition="CON_MDR1986BXX">
+    <component Cclass="Drivers" Cgroup="UART" Cversion="1.3.1" condition="CON_MDR1986Bxx">
       <description>UART driver for MDR1986BExx Series</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_uart.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_uart.c"/>
       </files>
     </component>
-    
+
     <!-- MIL_STD_1553 Driver -->
-    <component Cclass="Drivers" Cgroup="MIL_STD_1553" Cversion="1.3.1" condition="CON_MDR1986BEXT">
+    <component Cclass="Drivers" Cgroup="MIL_STD_1553" Cversion="1.3.1" condition="CON_MDR1986BExT">
       <description>MIL_STD_1553 driver for MDR1986BE1T and MDR1986BE3T</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_mil_std_1553.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_mil_std_1553.c"/>
       </files>
     </component>
-    
+
     <!-- ARINC429R Driver -->
-    <component Cclass="Drivers" Cgroup="ARINC429R" Cversion="1.3.1" condition="CON_MDR1986BEXT">
+    <component Cclass="Drivers" Cgroup="ARINC429R" Cversion="1.3.1" condition="CON_MDR1986BExT">
       <description>ARINC429R driver for MDR1986BE1T and MDR1986BE3T</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_arinc429r.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_arinc429r.c"/>
       </files>
     </component>
-    
+
     <!-- ARINC429T  Driver -->
-    <component Cclass="Drivers" Cgroup="ARINC429T" Cversion="1.3.1" condition="CON_MDR1986BEXT">
+    <component Cclass="Drivers" Cgroup="ARINC429T" Cversion="1.3.1" condition="CON_MDR1986BExT">
       <description>ARINC429T driver for MDR1986BE1T and MDR1986BE3T</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_arinc429t.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_arinc429t.c"/>
       </files>
     </component>
-    
+
     <!-- Audio  Driver -->
     <component Cclass="Drivers" Cgroup="Audio" Cversion="1.3.1" condition="CON_MDR1986BE3T">
       <description>Audio driver for MDR1986BE3T</description>
@@ -656,16 +656,16 @@
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_audio.c"/>
       </files>
     </component>
-    
+
     <!-- Ethernet  Driver -->
-    <component Cclass="Drivers" Cgroup="Ethernet" Cversion="1.3.1" condition="CON_MDR1986BEXT">
+    <component Cclass="Drivers" Cgroup="Ethernet" Cversion="1.3.1" condition="CON_MDR1986BExT">
       <description>Ethernet driver for MDR1986BE1T and MDR1986BE3T</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_eth.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_eth.c"/>
       </files>
     </component>
-    
+
     <!-- LED Driver -->
     <component Cclass="Drivers" Cgroup="LED" Cversion="1.3.1" condition="CON_MDR1986BE3T">
       <description>LED driver for MDR1986BE3T</description>
@@ -674,7 +674,7 @@
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_led.c"/>
       </files>
     </component>
-    
+
     <!-- Keypad  Driver -->
     <component Cclass="Drivers" Cgroup="Keypad" Cversion="1.3.1" condition="CON_MDR1986BE3T">
       <description>Keypad driver for MDR1986BE3T</description>
@@ -683,18 +683,18 @@
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_keypad.c"/>
       </files>
     </component>
-    
+
     <!-- USB Driver -->
-    <component Cclass="Drivers" Cgroup="USB" Cversion="1.3.1" condition="CON_MDR1986BXX">
+    <component Cclass="Drivers" Cgroup="USB" Cversion="1.3.1" condition="CON_MDR1986Bxx">
       <description>USB driver for MDR1986BExx Series</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\MDR32F9Qx_usb.h"/>
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\MDR32F9Qx_usb.c"/>
       </files>
     </component>
-    
+
     <!-- USB Library Driver -->
-    <component Cclass="Drivers" Cgroup="USB Library" Cversion="1.3.1" condition="CON_MDR1986BXX">
+    <component Cclass="Drivers" Cgroup="USB Library" Cversion="1.3.1" condition="CON_MDR1986Bxx">
       <description>USB Library for MDR1986BE9x Series</description>
       <files>
         <file category="header" name="Libraries\MDR32F9Qx_StdPeriph_Driver\inc\USB_Library\MDR32F9Qx_usb_CDC.h"/>
@@ -703,7 +703,7 @@
         <file category="source" name="Libraries\MDR32F9Qx_StdPeriph_Driver\src\USB_Library\MDR32F9Qx_usb_device.c"/>
       </files>
     </component>
-    
+
     <!-- STD for 1986BE4 -->
     <!-- ADC Driver -->
     <component Cclass="Drivers" Cgroup="ADC" Cversion="1.3.1" condition="CON_MDR1986BE4">
@@ -713,7 +713,7 @@
         <file category="source" name="Libraries\MDR1986BE4_StdPeriph_Driver\src\MDR32F9Qx_ADC.c"/>
       </files>
     </component>
-    
+
     <!-- ADCIU Driver -->
     <component Cclass="Drivers" Cgroup="ADCIU" Cversion="1.3.1" condition="CON_MDR1986BE4">
       <description>ADCIU driver for MDR1986BE4</description>
@@ -722,7 +722,7 @@
         <file category="source" name="Libraries\MDR1986BE4_StdPeriph_Driver\src\MDR32F9Qx_adciu.c"/>
       </files>
     </component>
-    
+
     <!-- BKP  Driver -->
     <component Cclass="Drivers" Cgroup="BKP" Cversion="1.3.1" condition="CON_MDR1986BE4">
       <description>BKP driver for MDR1986BE4</description>
@@ -731,7 +731,7 @@
         <file category="source" name="Libraries\MDR1986BE4_StdPeriph_Driver\src\MDR32F9Qx_BKP.c"/>
       </files>
     </component>
-    
+
     <!-- COMP  Driver -->
     <component Cclass="Drivers" Cgroup="COMP" Cversion="1.3.1" condition="CON_MDR1986BE4">
       <description>COMP driver for MDR1986BE4</description>
@@ -740,7 +740,7 @@
         <file category="source" name="Libraries\MDR1986BE4_StdPeriph_Driver\src\MDR32F9Qx_comp.c"/>
       </files>
     </component>
-    
+
     <!-- CRC  Driver -->
     <component Cclass="Drivers" Cgroup="CRC" Cversion="1.3.1" condition="CON_MDR1986BE4">
       <description>CRC driver for MDR1986BE4</description>
@@ -749,7 +749,7 @@
         <file category="source" name="Libraries\MDR1986BE4_StdPeriph_Driver\src\MDR32F9Qx_crc.c"/>
       </files>
     </component>
-    
+
     <!-- DAC Driver -->
     <component Cclass="Drivers" Cgroup="DAC" Cversion="1.3.1" condition="CON_MDR1986BE4">
       <description>DAC driver for MDR1986BE4</description>
@@ -758,7 +758,7 @@
         <file category="source" name="Libraries\MDR1986BE4_StdPeriph_Driver\src\MDR32F9Qx_dac.c"/>
       </files>
     </component>
-    
+
     <!-- DMA  Driver -->
     <component Cclass="Drivers" Cgroup="DMA" Cversion="1.3.1" condition="CON_MDR1986BE4">
       <description>DMA driver for MDR1986BE4</description>
@@ -767,7 +767,7 @@
         <file category="source" name="Libraries\MDR1986BE4_StdPeriph_Driver\src\MDR32F9Qx_dma.c"/>
       </files>
     </component>
-    
+
     <!-- EEPROM  Driver -->
     <component Cclass="Drivers" Cgroup="EEPROM" Cversion="1.3.1" condition="CON_MDR1986BE4">
       <description>EEPROM driver for MDR1986BE4</description>
@@ -776,7 +776,7 @@
         <file category="source" name="Libraries\MDR1986BE4_StdPeriph_Driver\src\MDR32F9Qx_eeprom.c"/>
       </files>
     </component>
-    
+
     <!-- IWDG Driver -->
     <component Cclass="Drivers" Cgroup="IWDG" Cversion="1.3.1" condition="CON_MDR1986BE4">
       <description>IWDG driver for MDR1986BE4</description>
@@ -785,7 +785,7 @@
         <file category="source" name="Libraries\MDR1986BE4_StdPeriph_Driver\src\MDR32F9Qx_iwdg.c"/>
       </files>
     </component>
-    
+
     <!-- PORT  Driver -->
     <component Cclass="Drivers" Cgroup="PORT" Cversion="1.3.1" condition="CON_MDR1986BE4">
       <description>PORT driver for MDR1986BE4</description>
@@ -794,7 +794,7 @@
         <file category="source" name="Libraries\MDR1986BE4_StdPeriph_Driver\src\MDR32F9Qx_port.c"/>
       </files>
     </component>
-    
+
     <!-- POWER  Driver -->
     <component Cclass="Drivers" Cgroup="POWER" Cversion="1.3.1" condition="CON_MDR1986BE4">
       <description>POWER driver for MDR1986BE4</description>
@@ -803,7 +803,7 @@
         <file category="source" name="Libraries\MDR1986BE4_StdPeriph_Driver\src\MDR32F9Qx_power.c"/>
       </files>
     </component>
-    
+
     <!-- RST_CLK  Driver -->
     <component Cclass="Drivers" Cgroup="RST_CLK" Cversion="1.3.1" condition="CON_MDR1986BE4">
       <description>RST_CLK driver for MDR1986BE4</description>
@@ -812,7 +812,7 @@
         <file category="source" name="Libraries\MDR1986BE4_StdPeriph_Driver\src\MDR32F9Qx_rst_clk.c"/>
       </files>
     </component>
-    
+
     <!-- SSP Driver -->
     <component Cclass="Drivers" Cgroup="SSP" Cversion="1.3.1" condition="CON_MDR1986BE4">
       <description>SSP driver for MDR1986BE4</description>
@@ -821,7 +821,7 @@
         <file category="source" name="Libraries\MDR1986BE4_StdPeriph_Driver\src\MDR32F9Qx_ssp.c"/>
       </files>
     </component>
-    
+
     <!-- TIMER Driver -->
     <component Cclass="Drivers" Cgroup="TIMER" Cversion="1.3.1" condition="CON_MDR1986BE4">
       <description>TIMER driver for MDR1986BE4</description>
@@ -830,7 +830,7 @@
         <file category="source" name="Libraries\MDR1986BE4_StdPeriph_Driver\src\MDR32F9Qx_timer.c"/>
       </files>
     </component>
-    
+
     <!-- UART Driver -->
     <component Cclass="Drivers" Cgroup="UART" Cversion="1.3.1" condition="CON_MDR1986BE4">
       <description>UART driver for MDR1986BE4</description>
@@ -839,7 +839,7 @@
         <file category="source" name="Libraries\MDR1986BE4_StdPeriph_Driver\src\MDR32F9Qx_uart.c"/>
       </files>
     </component>
-    
+
     <!-- WWDG Driver -->
     <component Cclass="Drivers" Cgroup="WWDG" Cversion="1.3.1" condition="CON_MDR1986BE4">
       <description>WWDG driver for MDR1986BE4</description>
@@ -848,6 +848,6 @@
         <file category="source" name="Libraries\MDR1986BE4_StdPeriph_Driver\src\MDR32F9Qx_wwdg.c"/>
       </files>
     </component>
-    
+
   </components>
 </package>
