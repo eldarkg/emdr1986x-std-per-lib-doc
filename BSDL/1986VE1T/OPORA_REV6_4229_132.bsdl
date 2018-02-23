@@ -1,0 +1,474 @@
+--  Created by vsomov
+
+entity PHY100_jtag is
+
+generic (PHYSICAL_PIN_MAP : string := "dummy");
+
+port (
+     TDI_PAD : in bit;
+     TDO_PAD : out bit;
+     TCK_PAD : in bit;
+     TRST_PAD : in bit;
+     TMS_PAD : in bit;
+     ITCM_LA_EN : in bit;
+     PA : inout bit_vector(0 to 15);
+     PB : inout bit_vector(0 to 15);
+     PC : inout bit_vector(0 to 15);
+     PD : inout bit_vector(0 to 15);
+     PE : inout bit_vector(0 to 15);
+     PF : inout bit_vector(0 to 15);
+     HSE : linkage bit;
+     JTAG_EN : in bit
+     );
+
+use STD_1149_1_2001.all ;
+use CDNDFT_1149_1_2001.all ;
+
+attribute COMPONENT_CONFORMANCE of PHY100_jtag: entity is "STD_1149_1_2001";
+
+attribute PIN_MAP of PHY100_jtag : entity is PHYSICAL_PIN_MAP;
+
+constant dummy : PIN_MAP_STRING :=
+                                "TDI:129, " &
+                                "TDO:130, " &
+                                "TCK:131, " &
+                                "TRST:132, " &
+                                "TMS:128, " &
+                                "ITCMLAEN:15, " &
+                                "PA:(127, " &
+                                "126, " &
+                                "125, " &
+                                "124, " &
+                                "123, " &
+                                "122, " &
+                                "121, " &
+                                "120, " &
+                                "119, " &
+                                "118, " &
+                                "115, " &
+                                "114, " &
+                                "113, " &
+                                "112, " &
+                                "111, " &
+                                "110), " &
+                                "PB:(109, " &
+                                "108, " &
+                                "107, " &
+                                "106, " &
+                                "105, " &
+                                "104, " &
+                                "103, " &
+                                "102, " &
+                                "101, " &
+                                "100, " &
+                                "99, " &
+                                "98, " &
+                                "97, " &
+                                "96, " &
+                                "95, " &
+                                "94), " &
+                                "PC:(89, " &
+                                "90, " &
+                                "91, " &
+                                "92, " &
+                                "93, " &
+                                "56, " &
+                                "57, " &
+                                "58, " &
+                                "59, " &
+                                "60, " &
+                                "61, " &
+                                "62, " &
+                                "63, " &
+                                "67, " &
+                                "68, " &
+                                "69), " &
+                                "PD:(72, " &
+                                "73, " &
+                                "74, " &
+                                "75, " &
+                                "76, " &
+                                "77, " &
+                                "78, " &
+                                "41, " &
+                                "42, " &
+                                "43, " &
+                                "44, " &
+                                "45, " &
+                                "46, " &
+                                "47, " &
+                                "48, " &
+                                "49), " &
+                                "PE:(50, " &
+                                "51, " &
+                                "52, " &
+                                "16, " &
+                                "17, " &
+                                "18, " &
+                                "34, " &
+                                "35, " &
+                                "19, " &
+                                "20, " &
+                                "21, " &
+                                "22, " &
+                                "23, " &
+                                "24, " &
+                                "25, " &
+                                "26), " &
+                                "PF:(27, " &
+                                "28, " &
+                                "29, " &
+                                "79, " &
+                                "80, " &
+                                "81, " &
+                                "82, " &
+                                "83, " &
+                                "84, " &
+                                "85, " &
+                                "86, " &
+                                "87, " &
+                                "88, " &
+                                "64, " &
+                                "65, " &
+                                "66), " &
+                                "OSC_IN:53, " &
+                                "JTAGEN:33" ;
+
+attribute TAP_SCAN_IN of TDI_PAD: signal is true;
+attribute TAP_SCAN_MODE of TMS_PAD: signal is true;
+attribute TAP_SCAN_OUT of TDO_PAD: signal is true;
+attribute TAP_SCAN_CLOCK of TCK_PAD: signal is (20.0e6, BOTH);
+attribute TAP_SCAN_RESET of TRST_PAD: signal is true;
+
+attribute COMPLIANCE_PATTERNS of PHY100_jtag: entity is
+"(JTAG_EN) (1)";
+
+attribute INSTRUCTION_LENGTH of PHY100_jtag: entity is 8;
+
+attribute INSTRUCTION_OPCODE of PHY100_jtag: entity is
+     "EXTEST         (00000000)," &
+     "SAMPLE         (00000001)," &
+     "IDCODE         (00000010)," &
+     "PRELOAD        (00000110)," &
+     "BYPASS         (11111111)," &
+     "FL_TST_EN      (10000000)," &
+     "PHY_TST_EN     (10000001)," &
+     "DAC_TST_EN     (10000010)," &
+     "ADC_TST_EN     (10000011)," &
+     "PLL_TST_EN     (10000100)," &
+     "BKP_TST_EN     (10000101)," &
+     "RTC_TST_EN     (10000110)," &
+     "SCN_TST_EN     (10000111)," &
+     "RAM_TST_EN     (10001000)," &
+     "ROM_TST_EN     (10001001)" ;
+
+attribute INSTRUCTION_CAPTURE of PHY100_jtag: entity is "XXXXXX01";
+
+attribute IDCODE_REGISTER of PHY100_jtag: entity is
+"10101101110000000000111111011111";
+
+attribute REGISTER_ACCESS of PHY100_jtag : entity is
+"BYPASS (FL_TST_EN,PHY_TST_EN,DAC_TST_EN,ADC_TST_EN,PLL_TST_EN,BKP_TST_EN,RTC_TST_EN,SCN_TST_EN,RAM_TST_EN,ROM_TST_EN)" ;
+
+attribute BOUNDARY_LENGTH of PHY100_jtag: entity is 193; 
+
+attribute BOUNDARY_REGISTER of PHY100_jtag: entity is
+"0  (BC_IN, ITCM_LA_EN, INPUT, X)," &
+"1  (BC_BIDIR, PA(15), BIDIR, X, 17, 0, Z)," &
+"2  (BC_BIDIR, PA(14), BIDIR, X, 18, 0, Z)," &
+"3  (BC_BIDIR, PA(13), BIDIR, X, 19, 0, Z)," &
+"4  (BC_BIDIR, PA(12), BIDIR, X, 20, 0, Z)," &
+"5  (BC_BIDIR, PA(11), BIDIR, X, 21, 0, Z)," &
+"6  (BC_BIDIR, PA(10), BIDIR, X, 22, 0, Z)," &
+"7  (BC_BIDIR, PA(9), BIDIR, X, 23, 0, Z)," &
+"8  (BC_BIDIR, PA(8), BIDIR, X, 24, 0, Z)," &
+"9  (BC_BIDIR, PA(7), BIDIR, X, 25, 0, Z)," &
+"10  (BC_BIDIR, PA(6), BIDIR, X, 26, 0, Z)," &
+"11  (BC_BIDIR, PA(5), BIDIR, X, 27, 0, Z)," &
+"12  (BC_BIDIR, PA(4), BIDIR, X, 28, 0, Z)," &
+"13  (BC_BIDIR, PA(3), BIDIR, X, 29, 0, Z)," &
+"14  (BC_BIDIR, PA(2), BIDIR, X, 30, 0, Z)," &
+"15  (BC_BIDIR, PA(1), BIDIR, X, 31, 0, Z)," &
+"16  (BC_BIDIR, PA(0), BIDIR, X, 32, 0, Z)," &
+"17  (BC_ENAB_NT, *, CONTROL, 0)," &
+"18  (BC_ENAB_NT, *, CONTROL, 0)," &
+"19  (BC_ENAB_NT, *, CONTROL, 0)," &
+"20  (BC_ENAB_NT, *, CONTROL, 0)," &
+"21  (BC_ENAB_NT, *, CONTROL, 0)," &
+"22  (BC_ENAB_NT, *, CONTROL, 0)," &
+"23  (BC_ENAB_NT, *, CONTROL, 0)," &
+"24  (BC_ENAB_NT, *, CONTROL, 0)," &
+"25  (BC_ENAB_NT, *, CONTROL, 0)," &
+"26  (BC_ENAB_NT, *, CONTROL, 0)," &
+"27  (BC_ENAB_NT, *, CONTROL, 0)," &
+"28  (BC_ENAB_NT, *, CONTROL, 0)," &
+"29  (BC_ENAB_NT, *, CONTROL, 0)," &
+"30  (BC_ENAB_NT, *, CONTROL, 0)," &
+"31  (BC_ENAB_NT, *, CONTROL, 0)," &
+"32  (BC_ENAB_NT, *, CONTROL, 0)," &
+"33  (BC_BIDIR, PB(15), BIDIR, X, 49, 0, Z)," &
+"34  (BC_BIDIR, PB(14), BIDIR, X, 50, 0, Z)," &
+"35  (BC_BIDIR, PB(13), BIDIR, X, 51, 0, Z)," &
+"36  (BC_BIDIR, PB(12), BIDIR, X, 52, 0, Z)," &
+"37  (BC_BIDIR, PB(11), BIDIR, X, 53, 0, Z)," &
+"38  (BC_BIDIR, PB(10), BIDIR, X, 54, 0, Z)," &
+"39  (BC_BIDIR, PB(9), BIDIR, X, 55, 0, Z)," &
+"40  (BC_BIDIR, PB(8), BIDIR, X, 56, 0, Z)," &
+"41  (BC_BIDIR, PB(7), BIDIR, X, 57, 0, Z)," &
+"42  (BC_BIDIR, PB(6), BIDIR, X, 58, 0, Z)," &
+"43  (BC_BIDIR, PB(5), BIDIR, X, 59, 0, Z)," &
+"44  (BC_BIDIR, PB(4), BIDIR, X, 60, 0, Z)," &
+"45  (BC_BIDIR, PB(3), BIDIR, X, 61, 0, Z)," &
+"46  (BC_BIDIR, PB(2), BIDIR, X, 62, 0, Z)," &
+"47  (BC_BIDIR, PB(1), BIDIR, X, 63, 0, Z)," &
+"48  (BC_BIDIR, PB(0), BIDIR, X, 64, 0, Z)," &
+"49  (BC_ENAB_NT, *, CONTROL, 0)," &
+"50  (BC_ENAB_NT, *, CONTROL, 0)," &
+"51  (BC_ENAB_NT, *, CONTROL, 0)," &
+"52  (BC_ENAB_NT, *, CONTROL, 0)," &
+"53  (BC_ENAB_NT, *, CONTROL, 0)," &
+"54  (BC_ENAB_NT, *, CONTROL, 0)," &
+"55  (BC_ENAB_NT, *, CONTROL, 0)," &
+"56  (BC_ENAB_NT, *, CONTROL, 0)," &
+"57  (BC_ENAB_NT, *, CONTROL, 0)," &
+"58  (BC_ENAB_NT, *, CONTROL, 0)," &
+"59  (BC_ENAB_NT, *, CONTROL, 0)," &
+"60  (BC_ENAB_NT, *, CONTROL, 0)," &
+"61  (BC_ENAB_NT, *, CONTROL, 0)," &
+"62  (BC_ENAB_NT, *, CONTROL, 0)," &
+"63  (BC_ENAB_NT, *, CONTROL, 0)," &
+"64  (BC_ENAB_NT, *, CONTROL, 0)," &
+"65  (BC_BIDIR, PC(15), BIDIR, X, 81, 0, Z)," &
+"66  (BC_BIDIR, PC(14), BIDIR, X, 82, 0, Z)," &
+"67  (BC_BIDIR, PC(13), BIDIR, X, 83, 0, Z)," &
+"68  (BC_BIDIR, PC(12), BIDIR, X, 84, 0, Z)," &
+"69  (BC_BIDIR, PC(11), BIDIR, X, 85, 0, Z)," &
+"70  (BC_BIDIR, PC(10), BIDIR, X, 86, 0, Z)," &
+"71  (BC_BIDIR, PC(9), BIDIR, X, 87, 0, Z)," &
+"72  (BC_BIDIR, PC(8), BIDIR, X, 88, 0, Z)," &
+"73  (BC_BIDIR, PC(7), BIDIR, X, 89, 0, Z)," &
+"74  (BC_BIDIR, PC(6), BIDIR, X, 90, 0, Z)," &
+"75  (BC_BIDIR, PC(5), BIDIR, X, 91, 0, Z)," &
+"76  (BC_BIDIR, PC(4), BIDIR, X, 92, 0, Z)," &
+"77  (BC_BIDIR, PC(3), BIDIR, X, 93, 0, Z)," &
+"78  (BC_BIDIR, PC(2), BIDIR, X, 94, 0, Z)," &
+"79  (BC_BIDIR, PC(1), BIDIR, X, 95, 0, Z)," &
+"80  (BC_BIDIR, PC(0), BIDIR, X, 96, 0, Z)," &
+"81  (BC_ENAB_NT, *, CONTROL, 0)," &
+"82  (BC_ENAB_NT, *, CONTROL, 0)," &
+"83  (BC_ENAB_NT, *, CONTROL, 0)," &
+"84  (BC_ENAB_NT, *, CONTROL, 0)," &
+"85  (BC_ENAB_NT, *, CONTROL, 0)," &
+"86  (BC_ENAB_NT, *, CONTROL, 0)," &
+"87  (BC_ENAB_NT, *, CONTROL, 0)," &
+"88  (BC_ENAB_NT, *, CONTROL, 0)," &
+"89  (BC_ENAB_NT, *, CONTROL, 0)," &
+"90  (BC_ENAB_NT, *, CONTROL, 0)," &
+"91  (BC_ENAB_NT, *, CONTROL, 0)," &
+"92  (BC_ENAB_NT, *, CONTROL, 0)," &
+"93  (BC_ENAB_NT, *, CONTROL, 0)," &
+"94  (BC_ENAB_NT, *, CONTROL, 0)," &
+"95  (BC_ENAB_NT, *, CONTROL, 0)," &
+"96  (BC_ENAB_NT, *, CONTROL, 0)," &
+"97  (BC_BIDIR, PD(15), BIDIR, X, 113, 0, Z)," &
+"98  (BC_BIDIR, PD(14), BIDIR, X, 114, 0, Z)," &
+"99  (BC_BIDIR, PD(13), BIDIR, X, 115, 0, Z)," &
+"100  (BC_BIDIR, PD(12), BIDIR, X, 116, 0, Z)," &
+"101  (BC_BIDIR, PD(11), BIDIR, X, 117, 0, Z)," &
+"102  (BC_BIDIR, PD(10), BIDIR, X, 118, 0, Z)," &
+"103  (BC_BIDIR, PD(9), BIDIR, X, 119, 0, Z)," &
+"104  (BC_BIDIR, PD(8), BIDIR, X, 120, 0, Z)," &
+"105  (BC_BIDIR, PD(7), BIDIR, X, 121, 0, Z)," &
+"106  (BC_BIDIR, PD(6), BIDIR, X, 122, 0, Z)," &
+"107  (BC_BIDIR, PD(5), BIDIR, X, 123, 0, Z)," &
+"108  (BC_BIDIR, PD(4), BIDIR, X, 124, 0, Z)," &
+"109  (BC_BIDIR, PD(3), BIDIR, X, 125, 0, Z)," &
+"110  (BC_BIDIR, PD(2), BIDIR, X, 126, 0, Z)," &
+"111  (BC_BIDIR, PD(1), BIDIR, X, 127, 0, Z)," &
+"112  (BC_BIDIR, PD(0), BIDIR, X, 128, 0, Z)," &
+"113  (BC_ENAB_NT, *, CONTROL, 0)," &
+"114  (BC_ENAB_NT, *, CONTROL, 0)," &
+"115  (BC_ENAB_NT, *, CONTROL, 0)," &
+"116  (BC_ENAB_NT, *, CONTROL, 0)," &
+"117  (BC_ENAB_NT, *, CONTROL, 0)," &
+"118  (BC_ENAB_NT, *, CONTROL, 0)," &
+"119  (BC_ENAB_NT, *, CONTROL, 0)," &
+"120  (BC_ENAB_NT, *, CONTROL, 0)," &
+"121  (BC_ENAB_NT, *, CONTROL, 0)," &
+"122  (BC_ENAB_NT, *, CONTROL, 0)," &
+"123  (BC_ENAB_NT, *, CONTROL, 0)," &
+"124  (BC_ENAB_NT, *, CONTROL, 0)," &
+"125  (BC_ENAB_NT, *, CONTROL, 0)," &
+"126  (BC_ENAB_NT, *, CONTROL, 0)," &
+"127  (BC_ENAB_NT, *, CONTROL, 0)," &
+"128  (BC_ENAB_NT, *, CONTROL, 0)," &
+"129  (BC_BIDIR, PE(15), BIDIR, X, 145, 0, Z)," &
+"130  (BC_BIDIR, PE(14), BIDIR, X, 146, 0, Z)," &
+"131  (BC_BIDIR, PE(13), BIDIR, X, 147, 0, Z)," &
+"132  (BC_BIDIR, PE(12), BIDIR, X, 148, 0, Z)," &
+"133  (BC_BIDIR, PE(11), BIDIR, X, 149, 0, Z)," &
+"134  (BC_BIDIR, PE(10), BIDIR, X, 150, 0, Z)," &
+"135  (BC_BIDIR, PE(9), BIDIR, X, 151, 0, Z)," &
+"136  (BC_BIDIR, PE(8), BIDIR, X, 152, 0, Z)," &
+"137  (BC_BIDIR, PE(7), BIDIR, X, 153, 0, Z)," &
+"138  (BC_BIDIR, PE(6), BIDIR, X, 154, 0, Z)," &
+"139  (BC_BIDIR, PE(5), BIDIR, X, 155, 0, Z)," &
+"140  (BC_BIDIR, PE(4), BIDIR, X, 156, 0, Z)," &
+"141  (BC_BIDIR, PE(3), BIDIR, X, 157, 0, Z)," &
+"142  (BC_BIDIR, PE(2), BIDIR, X, 158, 0, Z)," &
+"143  (BC_BIDIR, PE(1), BIDIR, X, 159, 0, Z)," &
+"144  (BC_BIDIR, PE(0), BIDIR, X, 160, 0, Z)," &
+"145  (BC_ENAB_NT, *, CONTROL, 0)," &
+"146  (BC_ENAB_NT, *, CONTROL, 0)," &
+"147  (BC_ENAB_NT, *, CONTROL, 0)," &
+"148  (BC_ENAB_NT, *, CONTROL, 0)," &
+"149  (BC_ENAB_NT, *, CONTROL, 0)," &
+"150  (BC_ENAB_NT, *, CONTROL, 0)," &
+"151  (BC_ENAB_NT, *, CONTROL, 0)," &
+"152  (BC_ENAB_NT, *, CONTROL, 0)," &
+"153  (BC_ENAB_NT, *, CONTROL, 0)," &
+"154  (BC_ENAB_NT, *, CONTROL, 0)," &
+"155  (BC_ENAB_NT, *, CONTROL, 0)," &
+"156  (BC_ENAB_NT, *, CONTROL, 0)," &
+"157  (BC_ENAB_NT, *, CONTROL, 0)," &
+"158  (BC_ENAB_NT, *, CONTROL, 0)," &
+"159  (BC_ENAB_NT, *, CONTROL, 0)," &
+"160  (BC_ENAB_NT, *, CONTROL, 0)," &
+"161  (BC_BIDIR, PF(15), BIDIR, X, 177, 0, Z)," &
+"162  (BC_BIDIR, PF(14), BIDIR, X, 178, 0, Z)," &
+"163  (BC_BIDIR, PF(13), BIDIR, X, 179, 0, Z)," &
+"164  (BC_BIDIR, PF(12), BIDIR, X, 180, 0, Z)," &
+"165  (BC_BIDIR, PF(11), BIDIR, X, 181, 0, Z)," &
+"166  (BC_BIDIR, PF(10), BIDIR, X, 182, 0, Z)," &
+"167  (BC_BIDIR, PF(9), BIDIR, X, 183, 0, Z)," &
+"168  (BC_BIDIR, PF(8), BIDIR, X, 184, 0, Z)," &
+"169  (BC_BIDIR, PF(7), BIDIR, X, 185, 0, Z)," &
+"170  (BC_BIDIR, PF(6), BIDIR, X, 186, 0, Z)," &
+"171  (BC_BIDIR, PF(5), BIDIR, X, 187, 0, Z)," &
+"172  (BC_BIDIR, PF(4), BIDIR, X, 188, 0, Z)," &
+"173  (BC_BIDIR, PF(3), BIDIR, X, 189, 0, Z)," &
+"174  (BC_BIDIR, PF(2), BIDIR, X, 190, 0, Z)," &
+"175  (BC_BIDIR, PF(1), BIDIR, X, 191, 0, Z)," &
+"176  (BC_BIDIR, PF(0), BIDIR, X, 192, 0, Z)," &
+"177  (BC_ENAB_NT, *, CONTROL, 0)," &
+"178  (BC_ENAB_NT, *, CONTROL, 0)," &
+"179  (BC_ENAB_NT, *, CONTROL, 0)," &
+"180  (BC_ENAB_NT, *, CONTROL, 0)," &
+"181  (BC_ENAB_NT, *, CONTROL, 0)," &
+"182  (BC_ENAB_NT, *, CONTROL, 0)," &
+"183  (BC_ENAB_NT, *, CONTROL, 0)," &
+"184  (BC_ENAB_NT, *, CONTROL, 0)," &
+"185  (BC_ENAB_NT, *, CONTROL, 0)," &
+"186  (BC_ENAB_NT, *, CONTROL, 0)," &
+"187  (BC_ENAB_NT, *, CONTROL, 0)," &
+"188  (BC_ENAB_NT, *, CONTROL, 0)," &
+"189  (BC_ENAB_NT, *, CONTROL, 0)," &
+"190  (BC_ENAB_NT, *, CONTROL, 0)," &
+"191  (BC_ENAB_NT, *, CONTROL, 0)," &
+"192  (BC_ENAB_NT, *, CONTROL, 0)";
+
+attribute BOUNDARY_SCAN_DESIGN_TYPE: BSDL_EXTENSION;
+
+attribute BOUNDARY_SCAN_DESIGN_TYPE of PHY100_jtag: entity is "IEEE_11491";
+
+attribute TestBench_Port_Alias: BSDL_EXTENSION;
+
+attribute TestBench_Port_Alias of PHY100_jtag: entity is
+"PA(0):PA[0]," &
+"PA(1):PA[1]," &
+"PA(2):PA[2]," &
+"PA(3):PA[3]," &
+"PA(4):PA[4]," &
+"PA(5):PA[5]," &
+"PA(6):PA[6]," &
+"PA(7):PA[7]," &
+"PA(8):PA[8]," &
+"PA(9):PA[9]," &
+"PA(10):PA[10]," &
+"PA(11):PA[11]," &
+"PA(12):PA[12]," &
+"PA(13):PA[13]," &
+"PA(14):PA[14]," &
+"PA(15):PA[15]," &
+"PB(0):PB[0]," &
+"PB(1):PB[1]," &
+"PB(2):PB[2]," &
+"PB(3):PB[3]," &
+"PB(4):PB[4]," &
+"PB(5):PB[5]," &
+"PB(6):PB[6]," &
+"PB(7):PB[7]," &
+"PB(8):PB[8]," &
+"PB(9):PB[9]," &
+"PB(10):PB[10]," &
+"PB(11):PB[11]," &
+"PB(12):PB[12]," &
+"PB(13):PB[13]," &
+"PB(14):PB[14]," &
+"PB(15):PB[15]," &
+"PC(0):PC[0]," &
+"PC(1):PC[1]," &
+"PC(2):PC[2]," &
+"PC(3):PC[3]," &
+"PC(4):PC[4]," &
+"PC(5):PC[5]," &
+"PC(6):PC[6]," &
+"PC(7):PC[7]," &
+"PC(8):PC[8]," &
+"PC(9):PC[9]," &
+"PC(10):PC[10]," &
+"PC(11):PC[11]," &
+"PC(12):PC[12]," &
+"PC(13):PC[13]," &
+"PC(14):PC[14]," &
+"PC(15):PC[15]," &
+"PD(0):PD[0]," &
+"PD(1):PD[1]," &
+"PD(2):PD[2]," &
+"PD(3):PD[3]," &
+"PD(4):PD[4]," &
+"PD(5):PD[5]," &
+"PD(6):PD[6]," &
+"PD(7):PD[7]," &
+"PD(8):PD[8]," &
+"PD(9):PD[9]," &
+"PD(10):PD[10]," &
+"PD(11):PD[11]," &
+"PD(12):PD[12]," &
+"PD(13):PD[13]," &
+"PD(14):PD[14]," &
+"PD(15):PD[15]," &
+"PE(0):PE[0]," &
+"PE(1):PE[1]," &
+"PE(2):PE[2]," &
+"PE(3):PE[3]," &
+"PE(4):PE[4]," &
+"PE(5):PE[5]," &
+"PE(6):PE[6]," &
+"PE(7):PE[7]," &
+"PE(8):PE[8]," &
+"PE(9):PE[9]," &
+"PE(10):PE[10]," &
+"PE(11):PE[11]," &
+"PE(12):PE[12]," &
+"PE(13):PE[13]," &
+"PE(14):PE[14]," &
+"PE(15):PE[15]," &
+"PF(0):PF[0]," &
+"PF(1):PF[1]," &
+"PF(2):PF[2]," &
+"PF(3):PF[3]," &
+"PF(4):PF[4]," &
+"PF(5):PF[5]," &
+"PF(6):PF[6]," &
+"PF(7):PF[7]," &
+"PF(8):PF[8]," &
+"PF(9):PF[9]," &
+"PF(10):PF[10]," &
+"PF(11):PF[11]," &
+"PF(12):PF[12]," &
+"PF(13):PF[13]," &
+"PF(14):PF[14]," &
+"PF(15):PF[15]";
+
+end PHY100_jtag ;
