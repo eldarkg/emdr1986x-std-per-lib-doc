@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package schemaVersion="1.2" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+  <vendor>Keil</vendor>
+  <url>http://www.keil.com/pack/</url>
+  <name>MDR32F8</name>
+  <description>Milandr MDR32F8 Series Device Support, Drivers and Examples</description>
+
+  <releases>
+    <release version="0.1">
+      27/06/2016, Initial version
+    </release>
+  </releases>
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->   
+  <devices>
+    <family Dfamily="RHMCU" Dvendor="Milandr:99">    
+      <subFamily DsubFamily="Cortex-M4F">         
+        <!-- MDR1986BE91 -->
+        <device Dname="MDR32F8">
+          <processor  Dcore="Cortex-M4" DcoreVersion="r0p0" Dfpu="NO_FPU" Dmpu="NO_MPU" Dendian="Little-endian" Dclock="60000000"/>
+          <compile    header="Libraries\CMSIS\CM4\DeviceSupport\MDR32F8\inc\" define="USE_MDR32F8"/>
+          <debug      svd="IDE\Keil\SVD\ARMCM4.svd"/>
+          <memory     id="IROM1"                          start="0x20006000"  size="0x2000"    startup="1"   default="1"/>
+          <memory     id="IRAM1"                          start="0x20000000"  size="0x6000"    init   ="1"   default="1"/>
+          <algorithm  name="Flash\"           start="0x08000000"  size="0x20000" RAMstart="0x20000000" RAMsize="0x8000" default="1"/>
+          <description>
+            (1986BE8 RUS)
+            Core:
+             - 32-bit ARM Cortex-M4 processor, running at frequencies of up to 60 MHz
+             - 1.25 DMIPS/MHz (Dhrystone 2.1) performance at 0 wait state memory access
+             - memory Protection Unit (MPU)
+             - 24-bit SysTick Timer
+
+            Memory:
+             - 128 KBytes of OTP w\ECC(SEC-DEC)
+             - 32 KBytes of SRAM w\ECC(SEC-DEC)
+             - external system bus controller w\ECC(SEC-DEC)
+
+            Supply and Clock rate:
+             - internal regulator for core voltage supply
+             - built-in power control system
+             - internal battery domain
+             - internal 8 MHz RC clock generator with calibration
+             - internal 40 kHz RC clockgenerator with calibration
+             - 2x external oscillator 1 .. 30 MHz
+             - 3x on-board PLL for clock frequency
+
+            Low power consumption modes:
+             - Sleep, Stop and Standby
+             - battery domain with RTC and backup registers
+
+            Analog features:
+             - 2x 12-bit ADC (16 channels)
+             - 2x 12-bit DAC
+
+            Peripheral features:
+             - EthernetMAC 10/100
+             - EthernetPHY 10
+             - SpaceWire
+             - ARINC 429 
+             - MILSTD
+             - 1xCAN, 1xSSP, 1xUART, 1xDMA, 4xTimer
+             - RTC
+             - WDG
+             - 160x GPIO
+
+            Debug mode:
+             - 2x JTAG
+          </description>
+        </device>
+      </subFamily>
+    </family>
+  </devices>
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->  
+<examples>
+  <example name="led_button_exti" doc="readme.txt" folder="Examples/led_button_exti">
+    <description>Work with port example</description>
+    <board name="EVAL-BOARD1986VE8T" vendor="Milandr"/>
+    <project>
+      <environment name="uv" load="led_button_exti.uvprojx"/>
+    </project>
+    <attributes>
+      <component Cclass="CMSIS"     Cgroup="CORE"/>
+      <component Cclass="Device"    Cgroup="Startup"/>
+    </attributes>
+  </example>
+  <example name="uart_echo" doc="readme.txt" folder="Examples/uart_echo">
+    <description>Work with uart example</description>
+    <board name="EVAL-BOARD1986VE8T" vendor="Milandr"/>
+    <project>
+      <environment name="uv" load="uart_echo.uvprojx"/>
+    </project>
+    <attributes>
+      <component Cclass="CMSIS"     Cgroup="CORE"/>
+      <component Cclass="Device"    Cgroup="Startup"/>
+    </attributes>
+  </example>
+  <example name="spi_mastermode" doc="readme.txt" folder="Examples/spi_mastermode">
+    <description>Work with spi example</description>
+    <board name="EVAL-BOARD1986VE8T" vendor="Milandr"/>
+    <project>
+      <environment name="uv" load="spi_mastermode.uvprojx"/>
+    </project>
+    <attributes>
+      <component Cclass="CMSIS"     Cgroup="CORE"/>
+      <component Cclass="Device"    Cgroup="Startup"/>
+    </attributes>
+  </example>
+  <example name="ARINC429_transceive" doc="readme.txt" folder="Examples/ARINC429_transceive">
+    <description>Work with ARINC example</description>
+    <board name="EVAL-BOARD1986VE8T" vendor="Milandr"/>
+    <project>
+      <environment name="uv" load="ARINC429_transceive.uvprojx"/>
+    </project>
+    <attributes>
+      <component Cclass="CMSIS"     Cgroup="CORE"/>
+      <component Cclass="Device"    Cgroup="Startup"/>
+    </attributes>
+  </example>
+  <example name="can_transceive" doc="readme.txt" folder="Examples/can_transceive">
+    <description>Work with CAN example</description>
+    <board name="EVAL-BOARD1986VE8T" vendor="Milandr"/>
+    <project>
+      <environment name="uv" load="can_transceive.uvprojx"/>
+    </project>
+    <attributes>
+      <component Cclass="CMSIS"     Cgroup="CORE"/>
+      <component Cclass="Device"    Cgroup="Startup"/>
+    </attributes>
+  </example>
+  <example name="tim_PWM" doc="readme.txt" folder="Examples/tim_PWM">
+    <description>Work with TIMER example</description>
+    <board name="EVAL-BOARD1986VE8T" vendor="Milandr"/>
+    <project>
+      <environment name="uv" load="tim_PWM.uvprojx"/>
+    </project>
+    <attributes>
+      <component Cclass="CMSIS"     Cgroup="CORE"/>
+      <component Cclass="Device"    Cgroup="Startup"/>
+    </attributes>
+  </example>
+  <example name="dac_dma_pingpong" doc="readme.txt" folder="Examples/dac_dma_pingpong">
+    <description>Work with DAC and DMA example</description>
+    <board name="EVAL-BOARD1986VE8T" vendor="Milandr"/>
+    <project>
+      <environment name="uv" load="dac_dma_pingpong.uvprojx"/>
+    </project>
+    <attributes>
+      <component Cclass="CMSIS"     Cgroup="CORE"/>
+      <component Cclass="Device"    Cgroup="Startup"/>
+    </attributes>
+  </example>  
+  <example name="MIL_STD_1553_valmess" doc="readme.txt" folder="Examples/MIL_STD_1553_valmess">
+    <description>Work with MIL_STD example</description>
+    <board name="EVAL-BOARD1986VE8T" vendor="Milandr"/>
+    <project>
+      <environment name="uv" load="MIL_STD_1553_valmess.uvprojx"/>
+    </project>
+    <attributes>
+      <component Cclass="CMSIS"     Cgroup="CORE"/>
+      <component Cclass="Device"    Cgroup="Startup"/>
+    </attributes>
+  </example>   
+  <example name="eth_loopback" doc="readme.txt" folder="Examples/eth_loopback">
+    <description>Work with ethernet example</description>
+    <board name="EVAL-BOARD1986VE8T" vendor="Milandr"/>
+    <project>
+      <environment name="uv" load="eth_loopback.uvprojx"/>
+    </project>
+    <attributes>
+      <component Cclass="CMSIS"     Cgroup="CORE"/>
+      <component Cclass="Device"    Cgroup="Startup"/>
+    </attributes>
+  </example>   
+  <example name="adc_go" doc="readme.txt" folder="Examples/adc_go">
+    <description>Work with ADC example</description>
+    <board name="EVAL-BOARD1986VE8T" vendor="Milandr"/>
+    <project>
+      <environment name="uv" load="adc_go.uvprojx"/>
+    </project>
+    <attributes>
+      <component Cclass="CMSIS"     Cgroup="CORE"/>
+      <component Cclass="Device"    Cgroup="Startup"/>
+    </attributes>
+  </example>  
+  <example name="ext_bus_RAM" doc="readme.txt" folder="Examples/ext_bus_RAM">
+    <description>Work with EXT BUS example</description>
+    <board name="EVAL-BOARD1986VE8T" vendor="Milandr"/>
+    <project>
+      <environment name="uv" load="ext_bus_RAM.uvprojx"/>
+    </project>
+    <attributes>
+      <component Cclass="CMSIS"     Cgroup="CORE"/>
+      <component Cclass="Device"    Cgroup="Startup"/>
+    </attributes>
+  </example>      
+</examples>
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<boards>
+  <board vendor="Milandr" name="EVAL-BOARD1986VE8T" revision="V1" salesContact="sales@keil.com" orderForm="http://www.keil.com">
+    <description>MyVendor MyDevBoard Board Description</description>
+    <book category="setup"     name="Docs/MyDevBoard/MyDevBoard_setup.pdf"      title="Getting Started"/>
+    <book category="schematic" name="Docs/MyDevBoard/MyDevBoard_schematics.pdf" title="Schematics"/>
+    <book category="manual"    name="Docs/MyDevBoard/MyDevBoard_um.pdf"         title="User Manual"/>
+    <mountedDevice             deviceIndex="0" Dvendor="Milandr:99" Dname="MDR32F8"/>
+    <compatibleDevice          deviceIndex="0" Dvendor="Milandr:99" Dfamily="RHMCU"/>
+    <feature type="ODbg"       n="1"           name="On-board J-LINK Lite"/>
+    <feature type="PWR"        n="5"           name="USB Powered"/>
+    <feature type="DIO"        n="8"/>
+    <feature type="SPI"        n="1"/>
+    <feature type="LED"        n="6"           name="User LEDs"/>
+    <feature type="ArduinoFF"  n="1"/>
+    <debugInterface adapter="J-Link Lite"      connector="Mini-USB"/>
+  </board>
+</boards>
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+<conditions>
+<condition id="RHMCU Series">
+  <description>ARM Cortex M4 device required</description>
+  <require Dfamily="RHMCU" Dvendor="Milandr:99"/>
+</condition>
+<condition id="EVAL-BOARD1986VE8T Setup">
+  <description>Board Setup Code required</description>
+  <require condition="RHMCU Series"/>
+  <require Cclass="Board Support" Cgroup="Board Setup"/>
+</condition>
+  <condition id="CON_MDR1986VE8">
+    <description>MDR1986BExx device</description>
+    <accept Dname="MDR32F8"/>
+    <require Cclass="Board Support" Cgroup="Board Setup"/>
+  </condition>
+</conditions>
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+  <!-- component section (optional for all Software Packs)-->
+  <components>
+  <bundle Cbundle="EVAL-BOARD1986VE8TSupport" Cclass="Board Support" Cversion="0.0.1">
+  <description>MyDevBoard custom board support package</description>
+  <doc>Docs/BSP/MyBSP.htm</doc>
+  <component Cgroup="Board Setup" condition="RHMCU Series">
+    <description>Custom board setup code</description>
+    <files>
+      <file category="header" name="Libraries\spec.h"/>
+      <file category="header" name="Libraries\mdr32f8_it.h"/>
+      <file category="source" name="Libraries\spec.c"/>
+    </files>
+  </component>
+</bundle>	
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+    <component Cclass="Device" Cgroup="Startup" Cversion="0.0.1" condition="CON_MDR1986VE8">
+      <description>System Startup for MDR32F8 device series</description>
+      <files>
+      <file category="source" name="Libraries\CMSIS\CM4\DeviceSupport\MDR32F8\startup\arm\startup_1986ve8t.s" attr="config"/>
+      </files>
+    </component>
+
+    <component Cclass="Drivers" Cgroup="PORT" Cversion="0.0.1" condition="CON_MDR1986VE8">
+      <description>PORT driver for MDR32F8 Series</description>
+      <files>
+        <file category="header" name="Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_port.h"/>
+        <file category="source" name="Libraries\MDR32F8_StdPeriph_Driver\src\mdr32f8_port.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Drivers" Cgroup="CLKCTRL" Cversion="0.0.1" condition="CON_MDR1986VE8">
+      <description>CLKCTRL driver for MDR32F8 Series</description>
+      <files>
+        <file category="header" name="Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_clkctrl.h"/>
+        <file category="source" name="Libraries\MDR32F8_StdPeriph_Driver\src\mdr32f8_clkctrl.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Drivers" Cgroup="UART" Cversion="0.0.1" condition="CON_MDR1986VE8">
+      <description>UART driver for MDR32F8 Series</description>
+      <files>
+        <file category="header" name="Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_uart.h"/>
+        <file category="source" name="Libraries\MDR32F8_StdPeriph_Driver\src\mdr32f8_uart.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Drivers" Cgroup="SSP" Cversion="0.0.1" condition="CON_MDR1986VE8">
+      <description>SSP driver for MDR32F8 Series</description>
+      <files>
+        <file category="header" name="Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_ssp.h"/>
+        <file category="source" name="Libraries\MDR32F8_StdPeriph_Driver\src\mdr32f8_ssp.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Drivers" Cgroup="ARINC429_tx" Cversion="0.0.1" condition="CON_MDR1986VE8">
+      <description>ARINC429_tx driver for MDR32F8 Series</description>
+      <files>
+        <file category="header" name="Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_arinc_tx.h"/>
+        <file category="source" name="Libraries\MDR32F8_StdPeriph_Driver\src\mdr32f8_arinc_tx.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Drivers" Cgroup="ARINC429_rx" Cversion="0.0.1" condition="CON_MDR1986VE8">
+      <description>ARINC429_rx driver for MDR32F8 Series</description>
+      <files>
+        <file category="header" name="Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_arinc_rx.h"/>
+        <file category="source" name="Libraries\MDR32F8_StdPeriph_Driver\src\mdr32f8_arinc_rx.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Drivers" Cgroup="CAN" Cversion="0.0.1" condition="CON_MDR1986VE8">
+      <description>CAN driver for MDR32F8 Series</description>
+      <files>
+        <file category="header" name="Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_can.h"/>
+        <file category="source" name="Libraries\MDR32F8_StdPeriph_Driver\src\mdr32f8_can.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Drivers" Cgroup="TIM" Cversion="0.0.1" condition="CON_MDR1986VE8">
+      <description>TIM driver for MDR32F8 Series</description>
+      <files>
+        <file category="header" name="Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_tim.h"/>
+        <file category="source" name="Libraries\MDR32F8_StdPeriph_Driver\src\mdr32f8_tim.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Drivers" Cgroup="DMA" Cversion="0.0.1" condition="CON_MDR1986VE8">
+      <description>DMA driver for MDR32F8 Series</description>
+      <files>
+        <file category="header" name="Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_dma.h"/>
+        <file category="source" name="Libraries\MDR32F8_StdPeriph_Driver\src\mdr32f8_dma.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Drivers" Cgroup="DAC" Cversion="0.0.1" condition="CON_MDR1986VE8">
+      <description>DAC driver for MDR32F8 Series</description>
+      <files>
+        <file category="header" name="Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_dac.h"/>
+        <file category="source" name="Libraries\MDR32F8_StdPeriph_Driver\src\mdr32f8_dac.c"/>
+      </files>
+    </component>
+
+    <component Cclass="Drivers" Cgroup="MIL_STD_1553" Cversion="0.0.1" condition="CON_MDR1986VE8">
+      <description>MIL_STD_1553 driver for MDR32F8 Series</description>
+      <files>
+        <file category="header" name="Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_milstd.h"/>
+        <file category="source" name="Libraries\MDR32F8_StdPeriph_Driver\src\mdr32f8_milstd.c"/>
+      </files>
+    </component>   
+
+    <component Cclass="Drivers" Cgroup="ETH" Cversion="0.0.1" condition="CON_MDR1986VE8">
+      <description>ETHERNET driver for MDR32F8 Series</description>
+      <files>
+        <file category="header" name="Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_eth.h"/>
+        <file category="source" name="Libraries\MDR32F8_StdPeriph_Driver\src\mdr32f8_eth.c"/>
+      </files>
+    </component>   
+
+    <component Cclass="Drivers" Cgroup="ADC" Cversion="0.0.1" condition="CON_MDR1986VE8">
+      <description>ADC driver for MDR32F8 Series</description>
+      <files>
+        <file category="header" name="Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_adc.h"/>
+        <file category="source" name="Libraries\MDR32F8_StdPeriph_Driver\src\mdr32f8_adc.c"/>
+      </files>
+    </component>        
+
+    <component Cclass="Drivers" Cgroup="EBC" Cversion="0.0.1" condition="CON_MDR1986VE8">
+      <description>EBC driver for MDR32F8 Series</description>
+      <files>
+        <file category="header" name="Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_ebc.h"/>
+        <file category="source" name="Libraries\MDR32F8_StdPeriph_Driver\src\mdr32f8_ebc.c"/>
+      </files>
+    </component>         
+
+    <component Cclass="Drivers" Cgroup="CONFIG" Cversion="0.0.1" condition="CON_MDR1986VE8">
+      <description>CONFIG for MDR32F8 Series</description>
+      <files>
+        <file category="header" name="Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_config.h"/>
+      </files>
+    </component>
+
+    <component Cclass="Drivers" Cgroup="LIB" Cversion="0.0.1" condition="CON_MDR1986VE8">
+      <description>LIB for MDR32F8 Series</description>
+      <files>
+        <file category="header" name="Libraries\MDR32F8_StdPeriph_Driver\inc\mdr32f8_lib.h"/>
+      </files>
+    </component>    
+
+  </components>
+<!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+    <!-- ADC Driver -->
+
+</package>
