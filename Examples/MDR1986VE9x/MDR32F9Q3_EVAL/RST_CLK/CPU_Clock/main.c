@@ -196,7 +196,7 @@ void main(void)
       RST_CLK_CPU_PLLconfig(RST_CLK_CPU_PLLsrcHSEdiv1, 7);
       /* Enable CPU_PLL */
       RST_CLK_CPU_PLLcmd(ENABLE);
-      if (RST_CLK_HSEstatus() == SUCCESS)                     /* Good CPU PLL */
+      if (RST_CLK_CPU_PLLstatus() == SUCCESS)                     /* Good CPU PLL */
       {
         /* Set CPU_C3_prescaler to 2 */
         RST_CLK_CPUclkPrescaler(RST_CLK_CPUclkDIV2);
